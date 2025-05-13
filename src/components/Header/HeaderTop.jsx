@@ -1,4 +1,3 @@
-import Layout from '~/components/Layout'
 import Box from '@mui/material/Box'
 import CallIcon from '@mui/icons-material/Call'
 import SearchIcon from '@mui/icons-material/Search'
@@ -15,10 +14,13 @@ const DISPLAY_FLEX = {
 
 function HeaderTop() {
   return (
-    <Layout sx={{ width: '100%', bgcolor: '#FFBD00' }}>
+    <Box sx={{ bgcolor: '#FFBD00' }}>
       <Box sx={{
-        mx: '180px',
+        maxWidth: 'lg',
+        mx: 'auto',
         color: '#F3F3F3',
+        gap: 2,
+        flexDirection: { xs: 'column', sm: 'row' },
         ...DISPLAY_FLEX
       }}>
         <Box sx={{
@@ -48,7 +50,7 @@ function HeaderTop() {
           </Box>
         </Box>
       </Box>
-    </Layout>
+    </Box>
   )
 }
 

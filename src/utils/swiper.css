@@ -1,0 +1,23 @@
+.mySwiper .swiper-pagination-bullets {
+  margin-bottom: 15px;
+}
+
+.mySwiper .swiper-pagination-bullet {
+  width: 30px;
+  height: 5px;
+  border-radius: 2px;
+  background-color: rgba(179, 179, 179);
+  opacity: 1;
+  transition: all 0.3s ease;
+}
+
+.mySwiper .swiper-pagination-bullet-active {
+  width: 90px;
+  background-color: #ff7e00;
+}
+
+.mySwiper .swiper-pagination-bullet-active-prev,
+.mySwiper .swiper-pagination-bullet-active-next {
+  transform: scale(1);
+  background-color: rgba(179, 179, 179);
+}
