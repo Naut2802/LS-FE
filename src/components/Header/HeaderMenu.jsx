@@ -1,5 +1,4 @@
 import * as React from 'react'
-import Layout from '~/components/Layout'
 import Box from '@mui/material/Box'
 import logoImage from '~/assets/logo.png'
 import Link from '@mui/material/Link'
@@ -25,35 +24,54 @@ function HeaderMenu() {
   }
 
   return (
-    <Layout sx={{ width: '100%', bgcolor: '#0F2DFF' }}>
+    <Box sx={{ bgcolor: '#0F2DFF' }}>
       <Box sx={{
-        mx: '180px',
+        maxWidth: 'lg',
+        mx: 'auto',
         gap: 3,
         display: 'flex',
-        justifyContent: 'space-between',
+        flexWrap: 'wrap',
+        justifyContent: { xs: 'center', md: 'space-between' },
         alignItems: 'center'
       }}>
-        <Box sx={{ my: '12px', width: '96px' }}>
+        <Box sx={{ my: '12px', width: { xs: '80px', md: '96px' } }}>
           <Link href='#' underline='none'>
-            <img src={logoImage} alt='Little Sunny Education Center' style={{
-              width: '100%',
-              height: '100%',
-              objectFit: 'cover'
-            }}/>
+            <Box component='img'
+              src={logoImage} alt='Little Sunny Education Center'
+              style={{
+                width: '100%',
+                height: '100%',
+                objectFit: 'cover'
+              }}
+            />
           </Link>
         </Box>
-        <Box sx={{ my: '12px' }}>
+        <Box
+          sx={{
+            display: 'flex',
+            flexWrap: 'wrap',
+            justifyContent: { xs: 'center', md: 'flex-start' },
+            gap: 2
+          }}
+        >
           <Link href='#' underline='none'>
             <Typography sx={{
               color: 'white',
-              fontSize: '20px',
+              fontSize: { xs: '16px', md: '20px' },
               fontWeight: 'bold'
             }}>
               Giới Thiệu
             </Typography>
           </Link>
         </Box>
-        <Box sx={{ my: '12px' }}>
+        <Box
+          sx={{
+            display: 'flex',
+            flexWrap: 'wrap',
+            justifyContent: { xs: 'center', md: 'flex-start' },
+            gap: 2
+          }}
+        >
           <Button
             id="basic-button"
             aria-controls={open ? 'basic-menu' : undefined}
@@ -64,10 +82,10 @@ function HeaderMenu() {
             disableRipple
             sx={{
               textTransform: 'none',
-              fontSize: '20px',
+              fontSize: { xs: '16px', md: '20px' },
               fontWeight: 'bold',
               '& .MuiSvgIcon-root': {
-                fontSize: '34px !important'
+                fontSize: { xs: '24px !important', md: '34px !important' }
               }
             }}
           >
@@ -93,22 +111,36 @@ function HeaderMenu() {
             <MenuItem onClick={handleClose}>Tiếng Anh Trung Học</MenuItem>
           </Menu>
         </Box>
-        <Box sx={{ my: '12px' }}>
+        <Box
+          sx={{
+            display: 'flex',
+            flexWrap: 'wrap',
+            justifyContent: { xs: 'center', md: 'flex-start' },
+            gap: 2
+          }}
+        >
           <Link href='#' underline='none'>
             <Typography sx={{
               color: 'white',
-              fontSize: '20px',
+              fontSize: { xs: '16px', md: '20px' },
               fontWeight: 'bold'
             }}>
               Giáo Viên
             </Typography>
           </Link>
         </Box>
-        <Box sx={{ my: '12px' }}>
+        <Box
+          sx={{
+            display: 'flex',
+            flexWrap: 'wrap',
+            justifyContent: { xs: 'center', md: 'flex-start' },
+            gap: 2
+          }}
+        >
           <Link href='#' underline='none'>
             <Typography sx={{
               color: 'white',
-              fontSize: '20px',
+              fontSize: { xs: '16px', md: '20px' },
               fontWeight: 'bold'
             }}>
               Tin Tức
@@ -116,19 +148,25 @@ function HeaderMenu() {
           </Link>
         </Box>
         <Box sx={{ my: '12px' }}>
-          <Button variant="contained" sx={{
-            borderRadius: '50px',
-            bgcolor: '#FF8300',
-            boxShadow: 'none',
-            color: 'white',
-            fontSize: '20px',
-            fontWeight: 'bold',
-            textTransform: 'none',
-            padding: '6px 20px'
-          }}>Đăng ký ngay</Button>
+          <Button
+            variant="contained"
+            sx={{
+              width: { xs: 'auto', md: 'auto' },
+              borderRadius: '50px',
+              bgcolor: '#FF8300',
+              boxShadow: 'none',
+              color: 'white',
+              fontSize: { xs: '16px', md: '20px' },
+              fontWeight: 'bold',
+              textTransform: 'none',
+              padding: '6px 20px'
+            }}
+          >
+              Đăng ký ngay
+          </Button>
         </Box>
       </Box>
-    </Layout>
+    </Box>
   )
 }
 

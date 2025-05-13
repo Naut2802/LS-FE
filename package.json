@@ -17,7 +17,8 @@
     "@mui/material": "^7.0.2",
     "little-sunny": "file:",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "swiper": "^11.2.6"
   },
   "devDependencies": {
     "@eslint/js": "^9.22.0",

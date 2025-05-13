@@ -1504,6 +1504,7 @@ lines-and-columns@^1.1.6:
     little-sunny "file:"
     react "^18.2.0"
     react-dom "^18.2.0"
+    swiper "^11.2.6"
 
 locate-path@^6.0.0:
   version "6.0.0"
@@ -1835,6 +1836,11 @@ svg-parser@^2.0.4:
   version "2.0.4"
   resolved "https://registry.npmjs.org/svg-parser/-/svg-parser-2.0.4.tgz"
   integrity sha512-e4hG1hRwoOdRb37cIMSgzNsxyzKfayW6VOflrwvR+/bzrkyxY/31WkbgnQpgtrNp1SdpJvpUAGTa/ZoiPNDuRQ==
+
+swiper@^11.2.6:
+  version "11.2.6"
+  resolved "https://registry.npmjs.org/swiper/-/swiper-11.2.6.tgz"
+  integrity sha512-8aXpYKtjy3DjcbzZfz+/OX/GhcU5h+looA6PbAzHMZT6ESSycSp9nAjPCenczgJyslV+rUGse64LMGpWE3PX9Q==
 
 tinyglobby@^0.2.12:
   version "0.2.12"
