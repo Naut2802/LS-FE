@@ -102,10 +102,15 @@ function News() {
                 href="#"
                 underline="none"
                 sx={{
+                  p: '10px',
                   color: '#FF8F19',
                   fontWeight: 'bold',
                   textTransform: 'none',
-                  '&:hover': { textDecoration: 'underline' }
+                  '&:hover': {
+                    textDecoration: 'underline',
+                    bgcolor: '#f5f6fa',
+                    borderRadius: '20px'
+                  }
                 }}
               >
                 Đọc tiếp →
@@ -158,10 +163,15 @@ function News() {
                     href="#"
                     underline="none"
                     sx={{
+                      p: '10px',
                       color: '#FF8F19',
                       fontWeight: 'bold',
                       textTransform: 'none',
-                      '&:hover': { textDecoration: 'underline' }
+                      '&:hover': {
+                        textDecoration: 'underline',
+                        bgcolor: '#f5f6fa',
+                        borderRadius: '20px'
+                      }
                     }}
                   >
                     Đọc tiếp →

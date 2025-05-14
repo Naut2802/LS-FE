@@ -73,7 +73,11 @@ function ImpressiveStats() {
                   alignItems: 'flex-start',
                   textAlign: 'left',
                   minHeight: 180,
-                  boxSizing: 'border-box'
+                  boxSizing: 'border-box',
+                  cursor: 'default',
+                  '&:hover': {
+                    bgcolor: '#fff6e5'
+                  }
                 }}
               >
                 <Box display="flex" alignItems="center" justifyContent="center">
