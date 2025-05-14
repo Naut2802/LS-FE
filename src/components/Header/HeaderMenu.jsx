@@ -35,16 +35,14 @@ function HeaderMenu() {
         alignItems: 'center'
       }}>
         <Box sx={{ my: '12px', width: { xs: '80px', md: '96px' } }}>
-          <Link href='#' underline='none'>
-            <Box component='img'
-              src={logoImage} alt='Little Sunny Education Center'
-              style={{
-                width: '100%',
-                height: '100%',
-                objectFit: 'cover'
-              }}
-            />
-          </Link>
+          <Box component='img'
+            src={logoImage} alt='Little Sunny Education Center'
+            style={{
+              width: '100%',
+              height: '100%',
+              objectFit: 'cover'
+            }}
+          />
         </Box>
         <Box
           sx={{
@@ -58,7 +56,10 @@ function HeaderMenu() {
             <Typography sx={{
               color: 'white',
               fontSize: { xs: '16px', md: '20px' },
-              fontWeight: 'bold'
+              fontWeight: 'bold',
+              '&:active': {
+                color: '#7f8c8d'
+              }
             }}>
               Giới Thiệu
             </Typography>
@@ -81,6 +82,7 @@ function HeaderMenu() {
             endIcon={icon}
             disableRipple
             sx={{
+              color: open ? '#d35400' : '',
               textTransform: 'none',
               fontSize: { xs: '16px', md: '20px' },
               fontWeight: 'bold',
@@ -123,7 +125,10 @@ function HeaderMenu() {
             <Typography sx={{
               color: 'white',
               fontSize: { xs: '16px', md: '20px' },
-              fontWeight: 'bold'
+              fontWeight: 'bold',
+              '&:active': {
+                color: '#7f8c8d'
+              }
             }}>
               Giáo Viên
             </Typography>
@@ -141,7 +146,10 @@ function HeaderMenu() {
             <Typography sx={{
               color: 'white',
               fontSize: { xs: '16px', md: '20px' },
-              fontWeight: 'bold'
+              fontWeight: 'bold',
+              '&:active': {
+                color: '#7f8c8d'
+              }
             }}>
               Tin Tức
             </Typography>
@@ -159,7 +167,11 @@ function HeaderMenu() {
               fontSize: { xs: '16px', md: '20px' },
               fontWeight: 'bold',
               textTransform: 'none',
-              padding: '6px 20px'
+              padding: '6px 20px',
+              '&:hover': {
+                boxShadow: 'none',
+                bgcolor: '#f1c40f'
+              }
             }}
           >
               Đăng ký ngay

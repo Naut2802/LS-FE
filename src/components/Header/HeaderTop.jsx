@@ -28,20 +28,51 @@ function HeaderTop() {
           padding: '8px 12px',
           ...DISPLAY_FLEX
         }}>
-          <CallIcon/>
-          <Link href='#' underline='none'>098 362 21 57</Link>
+          <Link
+            href='#'
+            underline='none'
+            sx={{
+              display: 'flex',
+              justifyContent: 'space-between',
+              gap: 1,
+              '&:active': {
+                color: '#7f8c8d'
+              }
+            }}
+          >
+            <CallIcon/>
+            <Typography>098 362 21 57</Typography>
+          </Link>
         </Box>
         <Box sx={{
+          ...DISPLAY_FLEX,
           gap: 1,
-          padding: '8px 12px',
-          ...DISPLAY_FLEX
+          padding: '8px 12px'
         }}>
-          <Box sx={{ ...DISPLAY_FLEX, gap: 1 }}>
+          <Box
+            sx={{
+              ...DISPLAY_FLEX,
+              gap: 1,
+              cursor: 'pointer',
+              '&:active': {
+                color: '#7f8c8d'
+              }
+            }}
+          >
             <Typography>Tìm Kiếm</Typography>
             <SearchIcon/>
           </Box>
           <Divider orientation="vertical" flexItem sx={{ mx: '8px', color: 'white', borderColor: 'white', borderWidth: '1px' }} />
-          <Box sx={{ ...DISPLAY_FLEX, gap: 1 }}>
+          <Box
+            sx={{
+              ...DISPLAY_FLEX,
+              gap: 1,
+              cursor: 'pointer',
+              '&:active': {
+                color: '#7f8c8d'
+              }
+            }}
+          >
             <Typography>VN</Typography>
             <Avatar alt="Việt Nam" src="./src/assets/VietNam.jpg" sx={{
               maxWidth: '16px',
