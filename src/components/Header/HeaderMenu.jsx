@@ -1,6 +1,6 @@
 import * as React from 'react'
 import Box from '@mui/material/Box'
-import logoImage from '~/assets/logo.png'
+import logoImage from '~/assets/logo.jpg'
 import Link from '@mui/material/Link'
 import Typography from '@mui/material/Typography'
 import Button from '@mui/material/Button'
@@ -24,11 +24,17 @@ function HeaderMenu() {
   }
 
   return (
-    <Box sx={{ bgcolor: '#0F2DFF' }}>
+    <Box
+      sx={{
+        bgcolor: (theme) => (theme.palette.secondary.main)
+      }}
+    >
       <Box sx={{
         maxWidth: 'lg',
         mx: 'auto',
-        gap: 3,
+        px: 2,
+        py: 0.5,
+        gap: 2,
         display: 'flex',
         flexWrap: 'wrap',
         justifyContent: { xs: 'center', md: 'space-between' },
@@ -82,12 +88,15 @@ function HeaderMenu() {
             endIcon={icon}
             disableRipple
             sx={{
-              color: open ? '#d35400' : '',
+              color: (theme) => (open ? theme.palette.primary.main : 'white'),
               textTransform: 'none',
               fontSize: { xs: '16px', md: '20px' },
               fontWeight: 'bold',
               '& .MuiSvgIcon-root': {
                 fontSize: { xs: '24px !important', md: '34px !important' }
+              },
+              '&:hover': {
+                bgcolor: 'transparent'
               }
             }}
           >
@@ -103,7 +112,7 @@ function HeaderMenu() {
             }}
             sx={{
               '& .MuiMenuItem-root:hover': {
-                color: '#0F2DFF',
+                color: (theme) => (theme.palette.secondary.light),
                 bgcolor: 'white'
               }
             }}
@@ -170,7 +179,7 @@ function HeaderMenu() {
               padding: '6px 20px',
               '&:hover': {
                 boxShadow: 'none',
-                bgcolor: '#f1c40f'
+                bgcolor: (theme) => (theme.palette.primary.light)
               }
             }}
           >

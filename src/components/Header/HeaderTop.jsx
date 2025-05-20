@@ -14,18 +14,22 @@ const DISPLAY_FLEX = {
 
 function HeaderTop() {
   return (
-    <Box sx={{ bgcolor: '#FFBD00' }}>
+    <Box
+      sx={{
+        bgcolor: (theme) => (theme.palette.primary.light)
+      }}
+    >
       <Box sx={{
         maxWidth: 'lg',
         mx: 'auto',
+        px: 2,
+        py: 0.5,
         color: '#F3F3F3',
-        gap: 2,
         flexDirection: { xs: 'column', sm: 'row' },
         ...DISPLAY_FLEX
       }}>
         <Box sx={{
           gap: 1,
-          padding: '8px 12px',
           ...DISPLAY_FLEX
         }}>
           <Link
@@ -34,6 +38,7 @@ function HeaderTop() {
             sx={{
               display: 'flex',
               justifyContent: 'space-between',
+              color: '#F3F3F3',
               gap: 1,
               '&:active': {
                 color: '#7f8c8d'
@@ -46,8 +51,7 @@ function HeaderTop() {
         </Box>
         <Box sx={{
           ...DISPLAY_FLEX,
-          gap: 1,
-          padding: '8px 12px'
+          gap: 1
         }}>
           <Box
             sx={{

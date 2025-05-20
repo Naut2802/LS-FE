@@ -1,5 +1,6 @@
 import React from 'react'
 import { Box, Typography, Button } from '@mui/material'
+import { alpha } from '@mui/material/styles'
 import TeacherImg from '~/assets/Teacher.jpg'
 import DoneIcon from '@mui/icons-material/Done'
 import MedalIcon from '@mui/icons-material/WorkspacePremiumOutlined'
@@ -108,7 +109,7 @@ function Teachers() {
                       left: 0,
                       width: '100%',
                       height: '100%',
-                      background: 'linear-gradient(to top, rgba(255, 143, 25, 0.8), rgba(255, 143, 25, 0))',
+                      background: (theme) => (`linear-gradient(to top, ${alpha(theme.palette.primary.main, 0.8)}, rgba(255, 143, 25, 0))`),
                       opacity: 0,
                       transition: 'opacity 0.3s ease',
                       display: 'flex',
