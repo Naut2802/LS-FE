@@ -4,8 +4,14 @@ import '@fontsource/inter'
 const theme = createTheme({
   palette: {
     primary: {
-      main: '#fff',
-      contrastText: '#FF8300'
+      main: '#FF8300',
+      light: '#FFBD00',
+      contrastText: '#FFFFFF'
+    },
+    secondary: {
+      main: '#185AB1',
+      light: '#0D28E5',
+      contrastText: '#FFFFFF'
     }
   },
   typography: {

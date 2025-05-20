@@ -1,7 +1,4 @@
 import { Box, Typography } from '@mui/material'
-import ArtBoard_1 from '~/assets/Artboard_1.jpg'
-import ArtBoard_2 from '~/assets/Artboard_2.jpg'
-import ArtBoard_3 from '~/assets/Artboard_3.jpg'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Navigation, Pagination, Autoplay, EffectCoverflow } from 'swiper/modules'
 import '~/utils/swiper.css'
@@ -14,32 +11,17 @@ function Facilities() {
   const facilities = [
     {
       id: 1,
-      image: `${ArtBoard_1}`,
+      image: './src/assets/Facility_1.jpg',
       alt: 'Classroom with yellow tables and chairs'
     },
     {
       id: 2,
-      image: `${ArtBoard_2}`,
+      image: './src/assets/Facility_2.jpg',
       alt: 'Classroom with colorful wall decoration'
     },
     {
       id: 3,
-      image: `${ArtBoard_3}`,
-      alt: 'Classroom with multicolor furniture'
-    },
-    {
-      id: 4,
-      image: `${ArtBoard_1}`,
-      alt: 'Classroom with yellow tables and chairs'
-    },
-    {
-      id: 5,
-      image: `${ArtBoard_2}`,
-      alt: 'Classroom with colorful wall decoration'
-    },
-    {
-      id: 6,
-      image: `${ArtBoard_3}`,
+      image: './src/assets/Facility_3.jpg',
       alt: 'Classroom with multicolor furniture'
     }
   ]
