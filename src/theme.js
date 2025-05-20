@@ -14,6 +14,20 @@ const theme = createTheme({
       contrastText: '#FFFFFF'
     }
   },
+  components: {
+    MuiTypography: {
+      styleOverrides: {
+        h3: ({ theme }) => ({
+          color: theme.palette.primary.main,
+          fontWeight: 'bold'
+        }),
+        h6: ({ theme }) => ({
+          color: theme.palette.primary.main,
+          fontWeight: 'bold'
+        })
+      }
+    }
+  },
   typography: {
     fontFamily: [
       'Inter',

@@ -1,6 +1,6 @@
 import * as React from 'react'
 import Box from '@mui/material/Box'
-import logoImage from '~/assets/logo.jpg'
+import logoImage from '~/assets/Logo.jpg'
 import Link from '@mui/material/Link'
 import Typography from '@mui/material/Typography'
 import Button from '@mui/material/Button'

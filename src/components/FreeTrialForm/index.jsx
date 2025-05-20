@@ -55,6 +55,7 @@ function FreeTrialForm() {
             variant="h6"
             fontWeight="bold"
             textAlign="center"
+            color='white'
             mb={3}
             sx={{ lineHeight: 1.5 }}
           >
