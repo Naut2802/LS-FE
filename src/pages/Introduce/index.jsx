@@ -1,9 +1,19 @@
-import Banner from '~/components/Banner'
+import Intro from '~/pages/Introduce/Intro'
+import TimeLine from '~/pages/Introduce/TimeLine'
+import Founder from '~/pages/Introduce/Founder'
+import Values from '~/pages/Introduce/Values'
+import Partner from '~/pages/Introduce/Partner'
+import FreeTrialForm from '~/components/FreeTrialForm'
 
 function HomePage() {
   return (
     <>
-      <Banner />
+      <Intro />
+      <TimeLine />
+      <Founder />
+      <Values />
+      <Partner />
+      <FreeTrialForm />
     </>
   )
 }
