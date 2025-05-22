@@ -51,7 +51,7 @@ const ViewAllButton = styled(Button)(({ theme }) => ({
   }
 }))
 
-const StudentRecognition = () => {
+function StudentRecognition() {
   const students = [
     { id: 1, name: 'Phạm An Vy', image: './src/assets/AnVy.jpg', class: 'Lớp Kindy 1', highlighted: false },
     { id: 2, name: 'Nguyễn Huynh Gia Gia', image: './src/assets/GiaGia.jpg', class: 'Lớp Kindy 1', highlighted: false },

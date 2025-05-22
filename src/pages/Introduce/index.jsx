@@ -5,7 +5,7 @@ import Values from '~/pages/Introduce/Values'
 import Partner from '~/pages/Introduce/Partner'
 import FreeTrialForm from '~/components/FreeTrialForm'
 
-function HomePage() {
+function Introduce() {
   return (
     <>
       <Intro />
@@ -18,4 +18,4 @@ function HomePage() {
   )
 }
 
-export default HomePage
+export default Introduce
