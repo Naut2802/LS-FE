@@ -4,6 +4,26 @@ import GroupIcon from '@mui/icons-material/Groups'
 import BalanceIcon from '@mui/icons-material/Balance'
 import LightbulbIcon from '@mui/icons-material/Lightbulb'
 
+const CardItem = ({ title, content, bgcolor }) => (
+  <Box
+    bgcolor={bgcolor}
+    sx={{
+      color: 'white',
+      borderRadius: 3,
+      p: 4,
+      flex: 1,
+      padding: 3,
+      minWidth: 250,
+      textAlign: 'center'
+    }}
+  >
+    <Typography variant="h3" sx={{ fontWeight: 'bold', mb: 2, color: 'white' }}>
+      {title}
+    </Typography>
+    <Typography fontSize={20}>{content}</Typography>
+  </Box>
+)
+
 function Values() {
   return (
     <Box sx={{ backgroundColor: '#F3F8FF' }}>
@@ -25,47 +45,24 @@ function Values() {
             mb: 4
           }}
         >
-          <Box
-            sx={{
-              bgcolor: (theme) => (theme.palette.primary.main),
-              color: 'white',
-              borderRadius: 3,
-              p: 4,
-              flex: 1
-            }}
-          >
-            <Typography variant="h3" sx={{ fontWeight: 'bold', mb: 2, color: 'white' }}>
-              Tầm nhìn
-            </Typography>
-            <Typography fontSize={20}>
-              Đào tạo một thế hệ không chỉ có khả năng thích ứng với thế giới đang thay đổi
-              mà còn góp phần thay đổi thế giới.
-            </Typography>
-          </Box>
-
-          <Box
-            sx={{
-              backgroundColor: (theme) => (theme.palette.primary.light),
-              color: 'white',
-              borderRadius: 3,
-              p: 4,
-              flex: 1
-            }}
-          >
-            <Typography variant="h3" sx={{ fontWeight: 'bold', mb: 2, color: 'white' }}>
-              Sứ mệnh
-            </Typography>
-            <Typography fontSize={20}>
-              Cam kết xây dựng một nền tảng giáo dục sẵn sàng cho tương lai và gắn chặt với môi trường làm việc hiện đại,
-              cũng như phát triển các giá trị của một công dân địa phương – toàn cầu.
-            </Typography>
-          </Box>
+          <CardItem
+            title='Tầm nhìn'
+            content='Đào tạo một thế hệ không chỉ có khả năng thích ứng với thế giới đang thay đổi
+              mà còn góp phần thay đổi thế giới.'
+            bgcolor='primary.main'
+          />
+          <CardItem
+            title='Sứ mệnh'
+            content='Cam kết xây dựng một nền tảng giáo dục sẵn sàng cho tương lai và gắn chặt với môi trường làm việc hiện đại,
+              cũng như phát triển các giá trị của một công dân địa phương – toàn cầu.'
+            bgcolor='primary.light'
+          />
         </Box>
 
         {/* Giá trị cốt lõi */}
         <Box
           sx={{
-            backgroundColor: (theme) => (theme.palette.secondary.main),
+            bgcolor: (theme) => (theme.palette.secondary.main),
             color: 'white',
             borderRadius: 3,
             p: 4

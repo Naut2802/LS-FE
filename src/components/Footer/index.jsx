@@ -42,7 +42,7 @@ function Footer() {
                 width={240}
               />
               <Box>
-                <Typography variant="h6" fontWeight="bold" mb={1}>
+                <Typography variant="h6" color='white' mb={1}>
                   LITTLE SUNNY EDUCATION CENTER
                 </Typography>
                 <Typography>

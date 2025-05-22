@@ -1,7 +1,7 @@
 import FounderImg from '~/assets/Founder.jpg'
 import { Box, Divider, Typography } from '@mui/material'
 
-function Intro() {
+function Founder() {
   return (
     <Box
       sx={{
@@ -64,4 +64,4 @@ function Intro() {
   )
 }
 
-export default Intro
+export default Founder

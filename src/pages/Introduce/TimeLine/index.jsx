@@ -1,4 +1,4 @@
-import { Box, Typography, useTheme, useMediaQuery } from '@mui/material'
+import { Box, Typography, useMediaQuery } from '@mui/material'
 import {
   Timeline as MuiTimeline,
   TimelineItem,
@@ -37,9 +37,8 @@ const timelineData = [
   }
 ]
 
-const TimeLine = () => {
-  const theme = useTheme()
-  const isMobile = useMediaQuery(theme.breakpoints.down('md'))
+function TimeLine() {
+  const isMobile = useMediaQuery('(max-width:960px)')
 
   return (
     <Box
