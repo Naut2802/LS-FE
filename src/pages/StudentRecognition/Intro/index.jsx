@@ -1,9 +1,9 @@
-import { Box, Typography } from '@mui/material'
+import { Box, Typography, Button } from '@mui/material'
 
 const photos = [
-  './src/assets/Teacher_Intro_1.jpg', // Ảnh lớn
-  './src/assets/Teacher_Intro_2.jpg', // Ảnh nhỏ trên
-  './src/assets/Teacher_Intro_3.jpg' // Ảnh nhỏ dưới
+  './src/assets/BaoNgoc.jpg', // Ảnh lớn
+  './src/assets/KhaDoanh.jpg', // Ảnh nhỏ trên
+  './src/assets/HoangNam.jpg' // Ảnh nhỏ dưới
 ];
 
 function TeacherIntro() {
@@ -61,12 +61,32 @@ function TeacherIntro() {
               mb: 2
             }}
           >
-            ĐỘI NGŨ GIÁO VIÊN<br />TẠI LITTLE SUNNY
+            THÀNH TÍCH<br />& CẢM NHẬN CỦA<br />HỌC VIÊN
           </Typography>
           <Typography variant="body1" fontWeight='bold' color="text.secondary">
-            Là những giáo viên giỏi kiến thức và giỏi truyền đạt. Luôn hết mình vì sự
-            phát triển của các em nhỏ học viên
+            Hàng ngàn review chính là niềm tự hào, là động lực của Little Sunny và cũng là tài sản nhỏ, tích góp, lụm lặt mỗi ngày của trung tâm.
           </Typography>
+          <Button
+            variant="contained"
+            sx={{
+              width: { xs: 'auto', md: 'auto' },
+              mt: 6,
+              borderRadius: '50px',
+              bgcolor: (theme) => (theme.palette.primary.main),
+              boxShadow: 'none',
+              color: 'white',
+              fontSize: '16px',
+              fontWeight: 'bold',
+              textTransform: 'none',
+              padding: '6px 20px',
+              '&:hover': {
+                boxShadow: 'none',
+                bgcolor: (theme) => (theme.palette.primary.light)
+              }
+            }}
+          >
+            Để lại cảm nhận tới Little Sunny →
+          </Button>
         </Box>
 
         {/* Right: Photos */}

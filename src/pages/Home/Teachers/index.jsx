@@ -168,14 +168,14 @@ function Teachers() {
           sx={{
             mt: 5,
             borderRadius: '50px',
-            borderColor: '#FF8F19',
-            color: '#FF8F19',
+            borderColor: (theme) => (theme.palette.primary.main),
+            color: (theme) => (theme.palette.primary.main),
             textTransform: 'none',
             fontWeight: 'bold',
             px: 4,
             py: 1,
             '&:hover': {
-              backgroundColor: '#FF8F19',
+              backgroundColor: (theme) => (theme.palette.primary.main),
               color: 'white'
             }
           }}
