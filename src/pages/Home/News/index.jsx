@@ -5,29 +5,25 @@ const news = [
   {
     id: 1,
     title: 'Khám Phá Summer Camp 2025',
-    date: 'Ngày 28/4',
-    description: 'các lớp kindy tổ chức khám phá summer camp tại công viên thống nhất',
+    description: 'Ngày 28/4, các lớp kindy tổ chức khám phá summer camp tại công viên thống nhất',
     image: `${NewsImg}`
   },
   {
     id: 2,
     title: 'Khám Phá Summer Camp 2025',
-    date: 'Ngày 28/4',
-    description: 'các lớp kindy tổ chức khám phá summer camp tại công viên thống nhất',
+    description: 'Ngày 28/4, các lớp kindy tổ chức khám phá summer camp tại công viên thống nhất',
     image: `${NewsImg}`
   },
   {
     id: 3,
     title: 'Khám Phá Summer Camp 2025',
-    date: 'Ngày 28/4',
-    description: 'các lớp kindy tổ chức khám phá summer camp tại công viên thống nhất',
+    description: 'Ngày 28/4, các lớp kindy tổ chức khám phá summer camp tại công viên thống nhất',
     image: `${NewsImg}`
   },
   {
     id: 4,
     title: 'Khám Phá Summer Camp 2025',
-    date: 'Ngày 28/4',
-    description: 'các lớp kindy tổ chức khám phá summer camp tại công viên thống nhất',
+    description: 'Ngày 28/4, các lớp kindy tổ chức khám phá summer camp tại công viên thống nhất',
     image: `${NewsImg}`
   }
 ]
@@ -157,7 +153,7 @@ function News() {
                     {item.title}
                   </Typography>
                   <Typography variant="body2" color="text.secondary" sx={{ mb: 1 }}>
-                    {item.date}, {item.description}
+                    {item.description}
                   </Typography>
                   <Link
                     href="#"
@@ -188,14 +184,14 @@ function News() {
           sx={{
             mt: 4,
             borderRadius: '50px',
-            borderColor: '#FF8F19',
-            color: '#FF8F19',
+            borderColor: (theme) => (theme.palette.primary.main),
+            color: (theme) => (theme.palette.primary.main),
             textTransform: 'none',
             fontWeight: 'bold',
             px: 4,
             py: 1,
             '&:hover': {
-              backgroundColor: '#FF8F19',
+              backgroundColor: (theme) => (theme.palette.primary.main),
               color: 'white'
             }
           }}

@@ -170,7 +170,7 @@ function HeaderMenu() {
             sx={{
               width: { xs: 'auto', md: 'auto' },
               borderRadius: '50px',
-              bgcolor: '#FF8300',
+              bgcolor: (theme) => (theme.palette.primary.main),
               boxShadow: 'none',
               color: 'white',
               fontSize: { xs: '16px', md: '20px' },

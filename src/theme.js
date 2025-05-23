@@ -19,7 +19,10 @@ const theme = createTheme({
       styleOverrides: {
         h3: ({ theme }) => ({
           color: theme.palette.primary.main,
-          fontWeight: 'bold'
+          fontWeight: 'bold',
+          [theme.breakpoints.down('sm')]: {
+            fontSize: '2.125rem'
+          }
         }),
         h6: ({ theme }) => ({
           color: theme.palette.primary.main,

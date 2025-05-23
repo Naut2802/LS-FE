@@ -135,7 +135,7 @@ function TeacherTeam() {
               count={Math.ceil(teachers.length / ITEMS_PER_PAGE)}
               page={page}
               onChange={handlePageChange}
-              shape="circle"
+              shape="circular"
               color="primary"
             />
           </Box>
