@@ -1,5 +1,6 @@
 import React from 'react'
-import { Box, Typography, Card, Button } from '@mui/material'
+import { useNavigate } from 'react-router-dom'
+import { Box, Typography, Button } from '@mui/material'
 import { styled } from '@mui/material/styles'
 import EastIcon from '@mui/icons-material/East'
 
@@ -52,6 +53,8 @@ const ViewAllButton = styled(Button)(({ theme }) => ({
 }))
 
 function StudentRecognition() {
+  const navigate = useNavigate()
+
   const students = [
     { id: 1, name: 'Phạm An Vy', image: './src/assets/AnVy.jpg', class: 'Lớp Kindy 1', highlighted: false },
     { id: 2, name: 'Nguyễn Huynh Gia Gia', image: './src/assets/GiaGia.jpg', class: 'Lớp Kindy 1', highlighted: false },
@@ -89,6 +92,9 @@ function StudentRecognition() {
 
         <Box sx={{ display: 'flex', justifyContent: 'center', mt: 4 }}>
           <ViewAllButton
+            onClick={() => {
+              navigate('/student')
+            }}
             variant="outlined"
             endIcon={<EastIcon />}
           >

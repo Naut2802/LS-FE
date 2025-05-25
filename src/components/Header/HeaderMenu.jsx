@@ -1,13 +1,13 @@
 import * as React from 'react'
 import Box from '@mui/material/Box'
 import logoImage from '~/assets/Logo.jpg'
-import Link from '@mui/material/Link'
 import Typography from '@mui/material/Typography'
 import Button from '@mui/material/Button'
 import Menu from '@mui/material/Menu'
 import MenuItem from '@mui/material/MenuItem'
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown'
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp'
+import { Link } from 'react-router-dom'
 
 function HeaderMenu() {
   const [anchorEl, setAnchorEl] = React.useState(null)
@@ -40,7 +40,14 @@ function HeaderMenu() {
         justifyContent: { xs: 'center', md: 'space-between' },
         alignItems: 'center'
       }}>
-        <Box sx={{ my: '12px', width: { xs: '80px', md: '96px' } }}>
+        <Box
+          component={Link}
+          to='/'
+          sx={{
+            my: '12px',
+            width: { xs: '80px', md: '96px' }
+          }}
+        >
           <Box component='img'
             src={logoImage} alt='Little Sunny Education Center'
             style={{
@@ -58,18 +65,21 @@ function HeaderMenu() {
             gap: 2
           }}
         >
-          <Link href='#' underline='none'>
-            <Typography sx={{
+          <Typography
+            component={Link}
+            to='/introduce'
+            sx={{
               color: 'white',
+              textDecoration: 'none',
               fontSize: { xs: '16px', md: '20px' },
               fontWeight: 'bold',
               '&:active': {
                 color: '#7f8c8d'
               }
-            }}>
+            }}
+          >
               Giới Thiệu
-            </Typography>
-          </Link>
+          </Typography>
         </Box>
         <Box
           sx={{
@@ -130,18 +140,21 @@ function HeaderMenu() {
             gap: 2
           }}
         >
-          <Link href='#' underline='none'>
-            <Typography sx={{
+          <Typography
+            component={Link}
+            to='/teacher'
+            sx={{
               color: 'white',
+              textDecoration: 'none',
               fontSize: { xs: '16px', md: '20px' },
               fontWeight: 'bold',
               '&:active': {
                 color: '#7f8c8d'
               }
-            }}>
+            }}
+          >
               Giáo Viên
-            </Typography>
-          </Link>
+          </Typography>
         </Box>
         <Box
           sx={{
@@ -151,18 +164,21 @@ function HeaderMenu() {
             gap: 2
           }}
         >
-          <Link href='#' underline='none'>
-            <Typography sx={{
+          <Typography
+            component={Link}
+            to='/news'
+            sx={{
               color: 'white',
+              textDecoration: 'none',
               fontSize: { xs: '16px', md: '20px' },
               fontWeight: 'bold',
               '&:active': {
                 color: '#7f8c8d'
               }
-            }}>
+            }}
+          >
               Tin Tức
-            </Typography>
-          </Link>
+          </Typography>
         </Box>
         <Box sx={{ my: '12px' }}>
           <Button

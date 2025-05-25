@@ -19,6 +19,8 @@
     "little-sunny": "file:",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-hook-form": "^7.56.4",
+    "react-router-dom": "^7.6.0",
     "swiper": "^11.2.6"
   },
   "devDependencies": {
