@@ -1,4 +1,5 @@
 import { Box, Typography, Button, Link } from '@mui/material'
+import { useNavigate } from 'react-router-dom'
 import NewsImg from '~/assets/News.jpg'
 
 const news = [
@@ -29,6 +30,8 @@ const news = [
 ]
 
 function News() {
+  const navigate = useNavigate()
+
   return (
     <Box sx={{ py: 8, px: 2 }}>
       <Box
@@ -181,6 +184,9 @@ function News() {
         {/* Nút xem tất cả */}
         <Button
           variant="outlined"
+          onClick={() => {
+            navigate('/news')
+          }}
           sx={{
             mt: 4,
             borderRadius: '50px',

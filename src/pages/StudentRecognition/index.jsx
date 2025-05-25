@@ -3,7 +3,7 @@ import RecognitionList from '~/pages/StudentRecognition/RecognitionList'
 import Feedbacks from '~/pages/StudentRecognition/Feedbacks'
 import FreeTrialForm from '~/components/FreeTrialForm'
 
-function StudentRecognition() {
+function Student() {
   return (
     <>
       <Intro />
@@ -14,4 +14,4 @@ function StudentRecognition() {
   )
 }
 
-export default StudentRecognition
+export default Student

@@ -1,4 +1,5 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom'
 import { Box, Typography, Button } from '@mui/material'
 import { alpha } from '@mui/material/styles'
 import TeacherImg from '~/assets/Teacher.jpg'
@@ -43,6 +44,8 @@ const teachers = [
 ]
 
 function Teachers() {
+  const navigate = useNavigate()
+
   return (
     <Box sx={{ py: 8, px: 2, backgroundColor: '#F3F8FF' }}>
       <Box sx={{ maxWidth: 'lg', mx: 'auto', textAlign: 'center' }}>
@@ -165,6 +168,9 @@ function Teachers() {
         {/* Nút xem thêm */}
         <Button
           variant="outlined"
+          onClick={() => {
+            navigate('/teacher')
+          }}
           sx={{
             mt: 5,
             borderRadius: '50px',
