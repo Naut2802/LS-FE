@@ -112,8 +112,9 @@ function NewsTabs() {
         value={selectedTab}
         onChange={handleTabChange}
         sx={{
+          color: '#97A0AF',
           '& .Mui-selected': {
-            color: 'white',
+            color: 'white !important',
             backgroundColor: (theme) => (theme.palette.secondary.main),
             borderRadius: '8px 8px 0 0'
           },
