@@ -5,6 +5,7 @@ import Typography from '@mui/material/Typography'
 import Divider from '@mui/material/Divider'
 import Avatar from '@mui/material/Avatar'
 import Link from '@mui/material/Link'
+import VietNamImg from '~/assets/VietNam.jpg'
 
 const DISPLAY_FLEX = {
   display: 'flex',
@@ -78,7 +79,7 @@ function HeaderTop() {
             }}
           >
             <Typography>VN</Typography>
-            <Avatar alt="Việt Nam" src="./src/assets/VietNam.jpg" sx={{
+            <Avatar alt="Việt Nam" src={VietNamImg} sx={{
               maxWidth: '16px',
               maxHeight: '16px'
             }}/>
