@@ -1,12 +1,16 @@
 import { Box, Typography, Button } from '@mui/material'
+import StudentHeroImg from '~/assets/TeacherBackground.jpg'
+import BaoNgocImg from '~/assets/BaoNgoc.jpg'
+import MinhChauImg from '~/assets/MinhChau.jpg'
+import KhaDoanh from '~/assets/KhaDoanh.jpg'
 
 const photos = [
-  './src/assets/BaoNgoc.jpg', // Ảnh lớn
-  './src/assets/KhaDoanh.jpg', // Ảnh nhỏ trên
-  './src/assets/HoangNam.jpg' // Ảnh nhỏ dưới
+  BaoNgocImg,
+  MinhChauImg,
+  KhaDoanh
 ];
 
-function TeacherIntro() {
+function Intro() {
   return (
     <Box
       sx={{
@@ -23,7 +27,7 @@ function TeacherIntro() {
         sx={{
           position: 'absolute',
           inset: 0,
-          backgroundImage: 'url(./src/assets/TeacherBackground.jpg)',
+          backgroundImage: `url(${StudentHeroImg})`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           zIndex: -2
@@ -148,4 +152,4 @@ function TeacherIntro() {
   )
 }
 
-export default TeacherIntro
+export default Intro

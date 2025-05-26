@@ -1,9 +1,13 @@
 import { Box, Typography } from '@mui/material'
+import TeacherBackground from '~/assets/TeacherBackground.jpg'
+import TeacherIntroImg_1 from '~/assets/Teacher_Intro_1.jpg'
+import TeacherIntroImg_2 from '~/assets/Teacher_Intro_1.jpg'
+import TeacherIntroImg_3 from '~/assets/Teacher_Intro_1.jpg'
 
 const photos = [
-  './src/assets/Teacher_Intro_1.jpg', // Ảnh lớn
-  './src/assets/Teacher_Intro_2.jpg', // Ảnh nhỏ trên
-  './src/assets/Teacher_Intro_3.jpg' // Ảnh nhỏ dưới
+  TeacherIntroImg_1,
+  TeacherIntroImg_2,
+  TeacherIntroImg_3
 ];
 
 function TeacherIntro() {
@@ -23,7 +27,7 @@ function TeacherIntro() {
         sx={{
           position: 'absolute',
           inset: 0,
-          backgroundImage: 'url(./src/assets/TeacherBackground.jpg)',
+          backgroundImage: `url(${TeacherBackground})`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           zIndex: -2

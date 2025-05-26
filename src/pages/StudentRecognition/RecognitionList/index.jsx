@@ -1,7 +1,7 @@
 import React from 'react'
 import { Box, Typography, Button } from '@mui/material'
 import { styled } from '@mui/material/styles'
-import EastIcon from '@mui/icons-material/East'
+import { students } from '~/data/students'
 
 // Styled components
 const StudentCard = styled(Box)(() => ({
@@ -52,14 +52,6 @@ const ViewAllButton = styled(Button)(({ theme }) => ({
 }))
 
 function RecognitionList() {
-  const students = [
-    { id: 1, name: 'Phạm An Vy', image: './src/assets/AnVy.jpg', class: 'Lớp Kindy 1', highlighted: false },
-    { id: 2, name: 'Nguyễn Huynh Gia Gia', image: './src/assets/GiaGia.jpg', class: 'Lớp Kindy 1', highlighted: false },
-    { id: 3, name: 'Lê Hoàng Nam', image: './src/assets/HoangNam.jpg', class: 'Lớp Kindy 1', highlighted: false },
-    { id: 4, name: 'Nguyễn Cát Bảo Ngọc', image: './src/assets/BaoNgoc.jpg', class: 'Lớp Kindy 1', highlighted: false },
-    { id: 5, name: 'Minh Châu', image: './src/assets/MinhChau.jpg', class: 'Lớp Kindy 1', highlighted: false },
-    { id: 6, name: 'Khả Doanh', image: './src/assets/KhaDoanh.jpg', class: 'Lớp Kindy 1', highlighted: true }
-  ]
 
   return (
     <Box sx={{ py: 8, px: 2 }}>

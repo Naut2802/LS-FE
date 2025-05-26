@@ -8,32 +8,33 @@ import {
   TimelineOppositeContent,
   TimelineDot
 } from '@mui/lab'
+import TimelineImg_1 from '~/assets/Timeline_1.jpg'
 
 const timelineData = [
   {
     time: '2011 - 2015',
     text: 'Thành lập Little Sunny gồm 3 lớp với 30 học viên',
-    image: './src/assets/Timeline_1.jpg'
+    image: TimelineImg_1
   },
   {
     time: '2015 - 2018',
     text: 'Thành lập Little Sunny với 3 lớp',
-    image: './src/assets/Timeline_1.jpg'
+    image: TimelineImg_1
   },
   {
     time: '2018 - 2020',
     text: 'Thành lập Little Sunny với 3 lớp',
-    image: './src/assets/Timeline_1.jpg'
+    image: TimelineImg_1
   },
   {
     time: '2020 - 2023',
     text: 'Thành lập Little Sunny với 3 lớp',
-    image: './src/assets/Timeline_1.jpg'
+    image: TimelineImg_1
   },
   {
     time: '2023 - nay',
     text: 'Thành lập Little Sunny với 3 lớp',
-    image: './src/assets/Timeline_1.jpg'
+    image: TimelineImg_1
   }
 ]
 

@@ -1,4 +1,6 @@
-import { Box, Divider, Typography } from '@mui/material'
+import { Box, Typography } from '@mui/material'
+import PartnerImg_1 from '~/assets/Partner_1.jpg'
+import PartnerImg_2 from '~/assets/Partner_2.jpg'
 
 function Partner() {
   return (
@@ -23,8 +25,8 @@ function Partner() {
           flexWrap: 'wrap'
         }}
       >
-        <Box component="img" src="./src/assets/Partner_1.jpg" alt="Cambridge" width={400} />
-        <Box component="img" src="./src/assets/Partner_2.jpg" alt="Pearson" width={400} />
+        <Box component="img" src={PartnerImg_1} alt="Cambridge" width={400} />
+        <Box component="img" src={PartnerImg_2} alt="Pearson" width={400} />
       </Box>
     </Box>
   )

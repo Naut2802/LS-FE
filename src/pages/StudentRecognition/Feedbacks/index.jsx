@@ -9,6 +9,15 @@ import {
 } from '@mui/material'
 import CloseIcon from '@mui/icons-material/Close'
 import { styled } from '@mui/material/styles'
+import FeedbackImg_1 from '~/assets/Feedback_1.jpg'
+import FeedbackImg_2 from '~/assets/Feedback_2.jpg'
+import FeedbackImg_3 from '~/assets/Feedback_3.jpg'
+import FeedbackImg_4 from '~/assets/Feedback_4.jpg'
+import FeedbackImg_5 from '~/assets/Feedback_5.jpg'
+import FeedbackImg_6 from '~/assets/Feedback_6.jpg'
+import FeedbackImg_7 from '~/assets/Feedback_7.jpg'
+import FeedbackImg_8 from '~/assets/Feedback_8.jpg'
+import FeedbackImg_9 from '~/assets/Feedback_9.jpg'
 
 const ImageContainer = styled(Box)(() => ({
   position: 'relative',
@@ -63,16 +72,16 @@ function Feedbacks() {
 
   // Sample images data
   const allImages = [
-    { id: 1, src: './src/assets/Feedback_1.jpg', alt: 'Teacher and students Feedback 1' },
-    { id: 2, src: './src/assets/Feedback_2.jpg', alt: 'Teacher and students Feedback 2' },
-    { id: 3, src: './src/assets/Feedback_3.jpg', alt: 'Teacher and students Feedback 3' },
-    { id: 4, src: './src/assets/Feedback_4.jpg', alt: 'Teacher and students Feedback 4' },
-    { id: 5, src: './src/assets/Feedback_5.jpg', alt: 'Teacher and students Feedback 5' },
-    { id: 6, src: './src/assets/Feedback_6.jpg', alt: 'Teacher and students Feedback 6' },
-    { id: 7, src: './src/assets/Feedback_7.jpg', alt: 'Teacher and students Feedback 7' },
-    { id: 8, src: './src/assets/Feedback_8.jpg', alt: 'Teacher and students Feedback 8' },
-    { id: 9, src: './src/assets/Feedback_9.jpg', alt: 'Teacher and students Feedback 7' },
-    { id: 10, src: './src/assets/Feedback_1.jpg', alt: 'Teacher and students Feedback 8' }
+    { id: 1, src: FeedbackImg_1, alt: 'Teacher and students Feedback 1' },
+    { id: 2, src: FeedbackImg_2, alt: 'Teacher and students Feedback 2' },
+    { id: 3, src: FeedbackImg_3, alt: 'Teacher and students Feedback 3' },
+    { id: 4, src: FeedbackImg_4, alt: 'Teacher and students Feedback 4' },
+    { id: 5, src: FeedbackImg_5, alt: 'Teacher and students Feedback 5' },
+    { id: 6, src: FeedbackImg_6, alt: 'Teacher and students Feedback 6' },
+    { id: 7, src: FeedbackImg_7, alt: 'Teacher and students Feedback 7' },
+    { id: 8, src: FeedbackImg_8, alt: 'Teacher and students Feedback 8' },
+    { id: 9, src: FeedbackImg_9, alt: 'Teacher and students Feedback 7' },
+    { id: 10, src: FeedbackImg_1, alt: 'Teacher and students Feedback 8' }
   ]
 
   const totalImages = allImages.length

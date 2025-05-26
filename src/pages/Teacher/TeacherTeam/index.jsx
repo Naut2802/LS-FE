@@ -3,6 +3,7 @@ import { Box, Typography, Avatar, Pagination } from '@mui/material'
 import { alpha } from '@mui/material/styles'
 import WorkspacePremiumOutlinedIcon from '@mui/icons-material/WorkspacePremiumOutlined'
 import CheckOutlinedIcon from '@mui/icons-material/CheckOutlined'
+import TeacherImg_1 from '~/assets/Founder.jpg'
 
 const teachers = Array.from({ length: 18 }, (_, i) => ({
   id: i,
@@ -11,7 +12,7 @@ const teachers = Array.from({ length: 18 }, (_, i) => ({
   score: '8.0 IELTS Overall',
   degree: 'Tốt nghiệp đại học Sài Gòn',
   subject: 'Giáo viên kỹ năng sống',
-  avatar: i === 0 ? './src/assets/Founder.jpg' : null,
+  avatar: i === 0 ? TeacherImg_1 : null,
   isHighlighted: i === 0 ? true : false
 }))
 

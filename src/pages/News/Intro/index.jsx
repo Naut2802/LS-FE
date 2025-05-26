@@ -8,6 +8,7 @@ import {
 import { alpha } from '@mui/material/styles'
 import PlayArrowIcon from '@mui/icons-material/PlayArrow'
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward'
+import NewsHeroImg from '~/assets/News_Hero.jpg'
 
 function Intro() {
   return (
@@ -17,7 +18,7 @@ function Intro() {
         minHeight: '600px',
         width: '100%',
         overflow: 'hidden',
-        backgroundImage: 'url("./src/assets/News_Hero.jpg")',
+        backgroundImage: `url(${NewsHeroImg})`,
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat'

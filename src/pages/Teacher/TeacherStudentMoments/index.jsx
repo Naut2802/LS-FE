@@ -9,6 +9,13 @@ import {
 } from '@mui/material'
 import CloseIcon from '@mui/icons-material/Close'
 import { styled } from '@mui/material/styles'
+import MomentImg_1 from '~/assets/Moment_1.jpg'
+import MomentImg_2 from '~/assets/Moment_2.jpg'
+import MomentImg_3 from '~/assets/Moment_3.jpg'
+import MomentImg_4 from '~/assets/Moment_4.jpg'
+import MomentImg_5 from '~/assets/Moment_5.jpg'
+import MomentImg_6 from '~/assets/Moment_6.jpg'
+import MomentImg_7 from '~/assets/Moment_7.jpg'
 
 const ImageContainer = styled(Box)(() => ({
   position: 'relative',
@@ -64,16 +71,16 @@ function TeacherStudentMoments() {
 
   // Sample images data
   const allImages = [
-    { id: 1, src: './src/assets/Moment_1.jpg', alt: 'Teacher and students moment 1' },
-    { id: 2, src: './src/assets/Moment_2.jpg', alt: 'Teacher and students moment 2' },
-    { id: 3, src: './src/assets/Moment_3.jpg', alt: 'Teacher and students moment 3' },
-    { id: 4, src: './src/assets/Moment_4.jpg', alt: 'Teacher and students moment 4' },
-    { id: 5, src: './src/assets/Moment_5.jpg', alt: 'Teacher and students moment 5' },
-    { id: 6, src: './src/assets/Moment_6.jpg', alt: 'Teacher and students moment 6' },
-    { id: 7, src: './src/assets/Moment_7.jpg', alt: 'Teacher and students moment 7' },
-    { id: 8, src: './src/assets/Moment_1.jpg', alt: 'Teacher and students moment 8' },
-    { id: 9, src: './src/assets/Moment_2.jpg', alt: 'Teacher and students moment 9' },
-    { id: 10, src: './src/assets/Moment_3.jpg', alt: 'Teacher and students moment 10' }
+    { id: 1, src: MomentImg_1, alt: 'Teacher and students moment 1' },
+    { id: 2, src: MomentImg_2, alt: 'Teacher and students moment 2' },
+    { id: 3, src: MomentImg_3, alt: 'Teacher and students moment 3' },
+    { id: 4, src: MomentImg_4, alt: 'Teacher and students moment 4' },
+    { id: 5, src: MomentImg_5, alt: 'Teacher and students moment 5' },
+    { id: 6, src: MomentImg_6, alt: 'Teacher and students moment 6' },
+    { id: 7, src: MomentImg_7, alt: 'Teacher and students moment 7' },
+    { id: 8, src: MomentImg_1, alt: 'Teacher and students moment 8' },
+    { id: 9, src: MomentImg_2, alt: 'Teacher and students moment 9' },
+    { id: 10, src: MomentImg_3, alt: 'Teacher and students moment 10' }
   ]
 
   const totalImages = allImages.length
