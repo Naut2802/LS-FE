@@ -7,7 +7,7 @@ import { ThemeProvider } from '@mui/material/styles'
 import theme from '~/theme.js'
 
 createRoot(document.getElementById('root')).render(
-  <BrowserRouter basename='/'>
+  <BrowserRouter basename='/little-sunny/'>
     <ThemeProvider theme={ theme }>
       <CssBaseline />
       <GlobalStyles
