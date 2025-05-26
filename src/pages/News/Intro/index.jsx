@@ -1,95 +1,101 @@
-import Box from '@mui/material/Box'
-import { Swiper, SwiperSlide } from 'swiper/react'
-import { Pagination, Autoplay } from 'swiper/modules'
-import BannerImg from '~/assets/HomeBackground.jpg'
-import 'swiper/css'
-import 'swiper/css/pagination'
-import '~/utils/swiper.css'
+import React from 'react'
+import {
+  Box,
+  Typography,
+  Button,
+  Stack
+} from '@mui/material'
+import { alpha } from '@mui/material/styles'
+import PlayArrowIcon from '@mui/icons-material/PlayArrow'
+import ArrowForwardIcon from '@mui/icons-material/ArrowForward'
 
 function Intro() {
   return (
-    <Box sx={{
-      width: '100%',
-      maxWidth: '100vw',
-      overflow: 'hidden',
-      '& .mySwiper': {
+    <Box
+      sx={{
+        position: 'relative',
+        minHeight: '600px',
         width: '100%',
-        height: 'auto'
-      },
-      '& .mySwiper img': {
-        display: 'block',
-        width: '100%',
-        height: 'auto',
-        objectFit: 'cover'
-      }
-    }}>
-      <Swiper
-        loop={true}
-        pagination={{
-          dynamicBullets: true,
-          clickable: true
+        overflow: 'hidden',
+        backgroundImage: 'url("./src/assets/News_Hero.jpg")',
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat'
+      }}
+    >
+      {/* Gradient Overlay */}
+      <Box
+        sx={{
+          position: 'absolute',
+          inset: 0,
+          background: (theme) => (`linear-gradient(to top, ${alpha(theme.palette.secondary.main, 0.8)}, transparent 100%)`)
         }}
-        modules={[Pagination, Autoplay]}
-        className="mySwiper"
-        autoplay={{
-          delay: 5000
-        }}
-        style={{
-          width: '100%',
-          height: 'auto'
+      />
+
+      {/* Content */}
+      <Box
+        sx={{
+          maxWidth: 'lg',
+          mx: 'auto',
+          position: 'relative',
+          zIndex: 10,
+          height: '600px',
+          display: 'flex',
+          flexDirection: 'column',
+          justifyContent: 'flex-end',
+          px: 2,
+          py: 4
         }}
       >
-        <SwiperSlide>
-          <Box
-            component="img"
-            src={BannerImg}
-            alt="Banner 1"
+        <Box sx={{ maxWidth: 800, color: 'white' }}>
+          {/* Badge */}
+          <Stack direction="row" alignItems="center" spacing={1} sx={{ mb: 1 }}>
+            <PlayArrowIcon sx={{ fontSize: { xs: '12px', sm: '16px', md: '24px' }, fontWeight: '500' }} />
+            <Typography sx={{ fontSize: { xs: '12px', sm: '16px', md: '24px' }, fontWeight: '500' }}>
+              Tin nổi bật
+            </Typography>
+          </Stack>
+
+          {/* Main Heading */}
+          <Typography
+            variant="h4"
             sx={{
-              width: '100%',
-              height: 'auto',
-              objectFit: 'cover'
+              lineHeight: 1.2,
+              fontWeight: '900',
+              fontSize: { xs: '0.875rem', sm: '1.25rem', md: '2.215rem' },
+              mb: 4
             }}
-          />
-        </SwiperSlide>
-        <SwiperSlide>
-          <Box
-            component="img"
-            src={BannerImg}
-            alt="Banner 2"
+          >
+            Little Sunny tổ chức ngoại khóa tham quan các địa danh nổi tiếng tại thành phố Hồ Chí Minh
+          </Typography>
+
+          {/* Read More Button */}
+          <Button
+            variant="contained"
+            endIcon={<ArrowForwardIcon />}
             sx={{
-              width: '100%',
-              height: 'auto',
-              objectFit: 'cover'
+              width: { xs: 'auto', md: 'auto' },
+              borderRadius: '50px',
+              bgcolor: 'white',
+              boxShadow: 'none',
+              color: 'secondary.main',
+              fontSize: { xs: '16px', md: '20px' },
+              fontWeight: 'bold',
+              textTransform: 'none',
+              padding: '6px 20px',
+              '&:hover': {
+                boxShadow: 'none',
+                bgcolor: (theme) => (theme.palette.secondary.main),
+                color: 'white'
+              }
             }}
-          />
-        </SwiperSlide>
-        <SwiperSlide>
-          <Box
-            component="img"
-            src={BannerImg}
-            alt="Banner 3"
-            sx={{
-              width: '100%',
-              height: 'auto',
-              objectFit: 'cover'
-            }}
-          />
-        </SwiperSlide>
-        <SwiperSlide>
-          <Box
-            component="img"
-            src={BannerImg}
-            alt="Banner 4"
-            sx={{
-              width: '100%',
-              height: 'auto',
-              objectFit: 'cover'
-            }}
-          />
-        </SwiperSlide>
-      </Swiper>
+          >
+            Đọc chi tiết
+          </Button>
+        </Box>
+      </Box>
     </Box>
   )
-}
+};
 
 export default Intro

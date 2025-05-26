@@ -1,5 +1,6 @@
-import { Tabs, Tab, Box, Typography, Pagination, Link } from '@mui/material';
+import { Tabs, Tab, Box, Typography, Pagination, Link, Stack } from '@mui/material';
 import { useState } from 'react';
+import PlayArrowIcon from '@mui/icons-material/PlayArrow'
 import NewsImg from '~/assets/News.jpg'
 
 const categories = ['Tin tức chung', 'Sự kiện', 'Tuyển dụng'];
@@ -107,7 +108,21 @@ function NewsTabs() {
         px: 2
       }}
     >
-      <Tabs value={selectedTab} onChange={handleTabChange}>
+      <Tabs
+        value={selectedTab}
+        onChange={handleTabChange}
+        sx={{
+          '& .Mui-selected': {
+            color: 'white',
+            backgroundColor: (theme) => (theme.palette.secondary.main),
+            borderRadius: '8px 8px 0 0'
+          },
+          '& .MuiTabs-indicator': {
+            display: 'none'
+          },
+          borderBottom: 'solid 2px #97A0AF'
+        }}
+      >
         {categories.map((category, index) => (
           <Tab key={index} label={category} />
         ))}
@@ -129,7 +144,8 @@ function NewsTabs() {
                 sm: 'calc(50% - 24px)',
                 md: 'calc(33.33% - 24px)'
               },
-              mt: 4
+              mt: 4,
+              cursor: 'pointer'
             }}
           >
             <Box
@@ -154,6 +170,12 @@ function NewsTabs() {
                 }}
               />
               <Box>
+                <Stack direction="row" alignItems="center" spacing={1}>
+                  <PlayArrowIcon sx={{ color: 'primary.main', fontSize: '16px', fontWeight: '400' }} />
+                  <Typography sx={{ color: 'primary.main', fontSize: '16px', fontWeight: '400' }}>
+                    {item.category}
+                  </Typography>
+                </Stack>
                 <Typography
                   variant="h6"
                   fontWeight="bold"
@@ -165,23 +187,6 @@ function NewsTabs() {
                 <Typography variant="body2" color="text.secondary" sx={{ mb: 2 }}>
                   {item.subTitle}
                 </Typography>
-                <Link
-                  href="#"
-                  underline="none"
-                  sx={{
-                    p: '10px',
-                    color: '#FF8F19',
-                    fontWeight: 'bold',
-                    textTransform: 'none',
-                    '&:hover': {
-                      textDecoration: 'underline',
-                      bgcolor: '#f5f6fa',
-                      borderRadius: '20px'
-                    }
-                  }}
-                >
-                  Đọc tiếp →
-                </Link>
               </Box>
             </Box>
           </Box>

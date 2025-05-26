@@ -1,5 +1,6 @@
 import * as React from 'react'
 import Box from '@mui/material/Box'
+import Paper from '@mui/material/Paper'
 import logoImage from '~/assets/Logo.jpg'
 import Typography from '@mui/material/Typography'
 import Button from '@mui/material/Button'
@@ -7,7 +8,15 @@ import Menu from '@mui/material/Menu'
 import MenuItem from '@mui/material/MenuItem'
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown'
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp'
+import DownloadIcon from '@mui/icons-material/Download'
 import { Link } from 'react-router-dom'
+
+const subjects = [
+  'Tiếng Anh Mầm Non',
+  'Tiếng Anh Tiểu Học',
+  'Tiếng Anh Trung Học',
+  'Tiển Tiểu Học'
+]
 
 function HeaderMenu() {
   const [anchorEl, setAnchorEl] = React.useState(null)
@@ -127,9 +136,70 @@ function HeaderMenu() {
               }
             }}
           >
-            <MenuItem onClick={handleClose}>Tiếng Anh Mầm Non</MenuItem>
-            <MenuItem onClick={handleClose}>Tiếng Anh Tiểu Học</MenuItem>
-            <MenuItem onClick={handleClose}>Tiếng Anh Trung Học</MenuItem>
+            <Box
+              sx={{
+                minWidth: '600px',
+                display: 'flex',
+                justifyContent: 'space-between',
+                alignItems: 'flex-start',
+                gap: 4,
+                mx: 2
+              }}
+            >
+              <Box sx={{ flex: 1 }}>
+                {subjects.map((subject, index) => (
+                  <MenuItem
+                    key={index}
+                    onClick={handleClose}
+                  >
+                    {subject}
+                  </MenuItem>
+                ))}
+              </Box>
+              <Box sx={{
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'center',
+                gap: 2
+              }}>
+                {/* Broucher preview placeholder */}
+                <Paper
+                  sx={{
+                    width: 160,
+                    height: 80,
+                    backgroundColor: '#e0e0e0',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    borderRadius: 1,
+                    boxShadow: 2
+                  }}
+                >
+                </Paper>
+
+                {/* Download button */}
+                <Button
+                  variant="contained"
+                  startIcon={<DownloadIcon />}
+                  sx={{
+                    bgcolor: 'transparent',
+                    boxShadow: 'none',
+                    color: 'secondary.main',
+                    textTransform: 'none',
+                    fontWeight: 500,
+                    px: 3,
+                    py: 1,
+                    borderRadius: 2,
+                    '&:hover': {
+                      color: 'primary.main',
+                      boxShadow: 'none'
+                    }
+                  }}
+                >
+                  Tải Broucher
+                </Button>
+              </Box>
+            </Box>
           </Menu>
         </Box>
         <Box
