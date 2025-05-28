@@ -1,33 +1,8 @@
-import { Box, Typography, Button, Link } from '@mui/material'
+import { Box, Typography, Link } from '@mui/material'
 import { useNavigate } from 'react-router-dom'
-import NewsImg from '~/assets/News.jpg'
-
-const news = [
-  {
-    id: 1,
-    title: 'Khám Phá Summer Camp 2025',
-    description: 'Ngày 28/4, các lớp kindy tổ chức khám phá summer camp tại công viên thống nhất',
-    image: `${NewsImg}`
-  },
-  {
-    id: 2,
-    title: 'Khám Phá Summer Camp 2025',
-    description: 'Ngày 28/4, các lớp kindy tổ chức khám phá summer camp tại công viên thống nhất',
-    image: `${NewsImg}`
-  },
-  {
-    id: 3,
-    title: 'Khám Phá Summer Camp 2025',
-    description: 'Ngày 28/4, các lớp kindy tổ chức khám phá summer camp tại công viên thống nhất',
-    image: `${NewsImg}`
-  },
-  {
-    id: 4,
-    title: 'Khám Phá Summer Camp 2025',
-    description: 'Ngày 28/4, các lớp kindy tổ chức khám phá summer camp tại công viên thống nhất',
-    image: `${NewsImg}`
-  }
-]
+import { news } from '~/data/news'
+import { ViewAllButton } from '~/components/Buttons/ViewAllButton'
+import EastIcon from '@mui/icons-material/East'
 
 function News() {
   const navigate = useNavigate()
@@ -41,7 +16,6 @@ function News() {
           textAlign: 'center'
         }}
       >
-        {/* Tiêu đề */}
         <Typography variant="h3" gutterBottom>
           TIN TỨC & SỰ KIỆN
         </Typography>
@@ -55,7 +29,6 @@ function News() {
           Là những giáo viên giỏi kiến thức và giỏi truyền đạt, rất tận tâm với học viên, đi dạy vì cái tâm và luôn khát khao cải tiến việc học tiếng anh ở việt nam
         </Typography>
 
-        {/* Nội dung chính */}
         <Box
           sx={{
             textAlign: 'left',
@@ -65,11 +38,10 @@ function News() {
             alignItems: 'flex-start'
           }}
         >
-          {/* Tin tức nổi bật */}
           <Box
             sx={{
               flex: 1,
-              borderRadius: 2,
+              borderRadius: 3,
               overflow: 'hidden',
               boxShadow: 'none',
               backgroundColor: 'white'
@@ -77,25 +49,27 @@ function News() {
           >
             <Box
               component="img"
-              src={NewsImg} // Thay bằng đường dẫn ảnh thực tế
+              src={news.at(0).image}
               alt="Hoạt Động Hưởng Ứng Ngày 30/4"
               sx={{
                 width: '100%',
                 height: '300px',
-                objectFit: 'cover'
+                objectFit: 'cover',
+                borderBottomLeftRadius: '12px',
+                borderBottomRightRadius: '12px'
               }}
             />
-            <Box sx={{ p: 2 }}>
+            <Box>
               <Typography
                 variant="h6"
                 fontWeight="bold"
                 color="text.primary"
                 sx={{ mb: 1 }}
               >
-                Hoạt Động Hưởng Ứng Ngày 30/4
+                {news.at(0).title}
               </Typography>
               <Typography variant="body2" color="text.secondary" sx={{ mb: 2 }}>
-                Những Ngày Này, Các Bạn Nhỏ Tại Little Sunny Đã Cùng Nhau Trải Qua Một Hành Trình Thật Ý Nghĩa: Tìm Hiểu Về Lịch Sử Đất Nước Qua Những Câu Chuyện Giản Dị, Và Những Hoạt Động Sáng Tạo Đầy Sắc Màu.
+                {news.at(0).subTitle}
               </Typography>
               <Link
                 href="#"
@@ -126,7 +100,7 @@ function News() {
               gap: 2
             }}
           >
-            {news.map((item) => (
+            {news.slice(0, 4).map((item) => (
               <Box
                 key={item.id}
                 sx={{
@@ -143,7 +117,7 @@ function News() {
                     width: '100px',
                     height: '100px',
                     objectFit: 'cover',
-                    borderRadius: 2
+                    borderRadius: 3
                   }}
                 />
                 <Box>
@@ -156,7 +130,7 @@ function News() {
                     {item.title}
                   </Typography>
                   <Typography variant="body2" color="text.secondary" sx={{ mb: 1 }}>
-                    {item.description}
+                    {item.subTitle}
                   </Typography>
                   <Link
                     href="#"
@@ -181,29 +155,17 @@ function News() {
           </Box>
         </Box>
 
-        {/* Nút xem tất cả */}
-        <Button
-          variant="outlined"
-          onClick={() => {
-            navigate('/news')
-          }}
-          sx={{
-            mt: 4,
-            borderRadius: '50px',
-            borderColor: (theme) => (theme.palette.primary.main),
-            color: (theme) => (theme.palette.primary.main),
-            textTransform: 'none',
-            fontWeight: 'bold',
-            px: 4,
-            py: 1,
-            '&:hover': {
-              backgroundColor: (theme) => (theme.palette.primary.main),
-              color: 'white'
-            }
-          }}
-        >
-          Xem tất cả →
-        </Button>
+        <Box sx={{ display: 'flex', justifyContent: 'center', mt: 4 }}>
+          <ViewAllButton
+            onClick={() => {
+              navigate('/news')
+            }}
+            variant="outlined"
+            endIcon={<EastIcon />}
+          >
+            Xem tất cả
+          </ViewAllButton>
+        </Box>
       </Box>
     </Box>
   )

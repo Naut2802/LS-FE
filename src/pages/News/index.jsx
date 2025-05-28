@@ -1,4 +1,4 @@
-import Intro from '~/pages/News/Intro'
+import Intro from '~/pages/News/NewsHero'
 import NewsTabs from '~/pages/News/NewsTabs'
 
 function News() {

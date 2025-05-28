@@ -1,9 +1,9 @@
 import { Box, Typography } from '@mui/material'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Navigation, Pagination, Autoplay, EffectCoverflow } from 'swiper/modules'
-import FacilityImg_1 from '~/assets/Facility_1.jpg'
-import FacilityImg_2 from '~/assets/Facility_2.jpg'
-import FacilityImg_3 from '~/assets/Facility_3.jpg'
+import FacilityImg_1 from '~/assets/facilities/facility-1.jpg'
+import FacilityImg_2 from '~/assets/facilities/facility-2.jpg'
+import FacilityImg_3 from '~/assets/facilities/facility-3.jpg'
 import '~/utils/swiper.css'
 import 'swiper/css'
 import 'swiper/css/navigation'
@@ -77,7 +77,7 @@ function Facilities() {
             },
             1024: {
               slidesPerView: 3
-            },
+            }
           }}
         >
           {facilities.map((facility) => (

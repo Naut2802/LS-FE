@@ -1,16 +1,16 @@
-import { Box, Typography } from '@mui/material'
-import TeacherBackground from '~/assets/TeacherBackground.jpg'
-import TeacherIntroImg_1 from '~/assets/Teacher_Intro_1.jpg'
-import TeacherIntroImg_2 from '~/assets/Teacher_Intro_1.jpg'
-import TeacherIntroImg_3 from '~/assets/Teacher_Intro_1.jpg'
+import { Box, Typography, Button } from '@mui/material'
+import StudentHeroImg from '~/assets/hero-sections/teacher-hero.jpg'
+import BaoNgocImg from '~/assets/students/BaoNgoc.jpg'
+import MinhChauImg from '~/assets/students/MinhChau.jpg'
+import KhaDoanh from '~/assets/students/KhaDoanh.jpg'
 
 const photos = [
-  TeacherIntroImg_1,
-  TeacherIntroImg_2,
-  TeacherIntroImg_3
+  BaoNgocImg,
+  MinhChauImg,
+  KhaDoanh
 ];
 
-function TeacherIntro() {
+function StudentHero() {
   return (
     <Box
       sx={{
@@ -27,7 +27,7 @@ function TeacherIntro() {
         sx={{
           position: 'absolute',
           inset: 0,
-          backgroundImage: `url(${TeacherBackground})`,
+          backgroundImage: `url(${StudentHeroImg})`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           zIndex: -2
@@ -65,12 +65,32 @@ function TeacherIntro() {
               mb: 2
             }}
           >
-            ĐỘI NGŨ GIÁO VIÊN<br />TẠI LITTLE SUNNY
+            THÀNH TÍCH<br />& CẢM NHẬN CỦA<br />HỌC VIÊN
           </Typography>
           <Typography variant="body1" fontWeight='bold' color="text.secondary">
-            Là những giáo viên giỏi kiến thức và giỏi truyền đạt. Luôn hết mình vì sự
-            phát triển của các em nhỏ học viên
+            Hàng ngàn review chính là niềm tự hào, là động lực của Little Sunny và cũng là tài sản nhỏ, tích góp, lụm lặt mỗi ngày của trung tâm.
           </Typography>
+          <Button
+            variant="contained"
+            sx={{
+              width: { xs: 'auto', md: 'auto' },
+              mt: 6,
+              borderRadius: '50px',
+              bgcolor: (theme) => (theme.palette.primary.main),
+              boxShadow: 'none',
+              color: 'white',
+              fontSize: '16px',
+              fontWeight: 'bold',
+              textTransform: 'none',
+              padding: '6px 20px',
+              '&:hover': {
+                boxShadow: 'none',
+                bgcolor: (theme) => (theme.palette.primary.light)
+              }
+            }}
+          >
+            Để lại cảm nhận tới Little Sunny →
+          </Button>
         </Box>
 
         {/* Right: Photos */}
@@ -132,4 +152,4 @@ function TeacherIntro() {
   )
 }
 
-export default TeacherIntro
+export default StudentHero

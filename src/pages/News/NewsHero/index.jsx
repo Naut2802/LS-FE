@@ -8,9 +8,9 @@ import {
 import { alpha } from '@mui/material/styles'
 import PlayArrowIcon from '@mui/icons-material/PlayArrow'
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward'
-import NewsHeroImg from '~/assets/News_Hero.jpg'
+import NewsHeroImg from '~/assets/hero-sections/news-hero.jpg'
 
-function Intro() {
+function NewsHero() {
   return (
     <Box
       sx={{
@@ -99,4 +99,4 @@ function Intro() {
   )
 };
 
-export default Intro
+export default NewsHero

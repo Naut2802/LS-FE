@@ -2,14 +2,12 @@ import { useState, useEffect } from 'react'
 import { Box, Typography, Card, CardMedia, CardContent, IconButton } from '@mui/material'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Navigation, Pagination, Autoplay } from 'swiper/modules'
-import CourseImg_1 from '~/assets/Course_1.jpg'
-import CourseImg_2 from '~/assets/Course_2.jpg'
-import CourseImg_3 from '~/assets/Course_3.jpg'
+import ArrowForwardIcon from '@mui/icons-material/ArrowForward'
+import { courses } from '~/data/courses'
 import '~/utils/swiper.css'
 import 'swiper/css'
 import 'swiper/css/navigation'
 import 'swiper/css/pagination'
-import ArrowForwardIcon from '@mui/icons-material/ArrowForward'
 
 const groupCourses = (data, itemsPerSlide) => {
   const groups = []
@@ -18,81 +16,6 @@ const groupCourses = (data, itemsPerSlide) => {
   }
   return groups
 }
-
-const courseData = [
-  {
-    title: 'TIẾNG ANH MẦM NON',
-    age: '(3-6 Tuổi)',
-    image: `${CourseImg_1}`,
-    color: '#00C9B6'
-  },
-  {
-    title: 'TIẾNG ANH TIỂU HỌC',
-    age: '(6-10 Tuổi)',
-    image: `${CourseImg_2}`,
-    color: '#FF4C1D'
-  },
-  {
-    title: 'TIẾNG ANH TRUNG HỌC',
-    age: '(11-15 Tuổi)',
-    image: `${CourseImg_3}`,
-    color: '#65B800'
-  },
-  {
-    title: 'TIẾNG ANH MẦM NON 2',
-    age: '(3-6 Tuổi)',
-    image: `${CourseImg_1}`,
-    color: '#00C9B6'
-  },
-  {
-    title: 'TIẾNG ANH TIỂU HỌC 2',
-    age: '(6-10 Tuổi)',
-    image: `${CourseImg_2}`,
-    color: '#FF4C1D'
-  },
-  {
-    title: 'TIẾNG ANH TRUNG HỌC 2',
-    age: '(11-15 Tuổi)',
-    image: `${CourseImg_3}`,
-    color: '#65B800'
-  },
-  {
-    title: 'TIẾNG ANH MẦM NON 3',
-    age: '(3-6 Tuổi)',
-    image: `${CourseImg_1}`,
-    color: '#00C9B6'
-  },
-  {
-    title: 'TIẾNG ANH TIỂU HỌC 3',
-    age: '(6-10 Tuổi)',
-    image: `${CourseImg_2}`,
-    color: '#FF4C1D'
-  },
-  {
-    title: 'TIẾNG ANH TRUNG HỌC 3',
-    age: '(11-15 Tuổi)',
-    image: `${CourseImg_3}`,
-    color: '#65B800'
-  },
-  {
-    title: 'TIẾNG ANH MẦM NON 4',
-    age: '(4-6 Tuổi)',
-    image: `${CourseImg_1}`,
-    color: '#00C9B6'
-  },
-  {
-    title: 'TIẾNG ANH TIỂU HỌC 4',
-    age: '(6-10 Tuổi)',
-    image: `${CourseImg_2}`,
-    color: '#FF4C1D'
-  },
-  {
-    title: 'TIẾNG ANH TRUNG HỌC 4',
-    age: '(11-15 Tuổi)',
-    image: `${CourseImg_3}`,
-    color: '#65B800'
-  }
-]
 
 const CourseCard = ({ course }) => (
   <Card
@@ -139,7 +62,7 @@ const CourseCard = ({ course }) => (
 )
 
 function Courses() {
-  const [slides, setSlides] = useState(groupCourses(courseData, 3))
+  const [slides, setSlides] = useState(groupCourses(courses, 3))
 
   useEffect(() => {
     const handleResize = () => {
@@ -149,7 +72,7 @@ function Courses() {
       else if (width < 900) itemsPerSlide = 2
       else itemsPerSlide = 3
 
-      setSlides(groupCourses(courseData, itemsPerSlide))
+      setSlides(groupCourses(courses, itemsPerSlide))
     }
 
     window.addEventListener('resize', handleResize)
@@ -192,7 +115,16 @@ function Courses() {
         >
           {slides.map((group, groupIndex) => (
             <SwiperSlide key={groupIndex}>
-              <Box sx={{ display: 'flex', gap: 3 }}>
+              <Box
+                sx={{
+                  width: group.length === 1 ? { sm: '50%', md: '33%' }
+                    : group.length === 2 ? { md: '66%' } : 'auto',
+                  mx: 'auto',
+                  display: 'flex',
+                  justifyContent: 'center',
+                  gap: 3
+                }}
+              >
                 {group.map((course, i) => (
                   <Box key={i} flex={1}>
                     <CourseCard course={course} />

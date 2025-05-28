@@ -1,4 +1,4 @@
-import FounderImg from '~/assets/Founder.jpg'
+import FounderImg from '~/assets/teachers/founder.jpg'
 import { Box, Divider, Typography } from '@mui/material'
 
 function Founder() {

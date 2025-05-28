@@ -1,6 +1,6 @@
 import { Box, Typography } from '@mui/material'
-import PartnerImg_1 from '~/assets/Partner_1.jpg'
-import PartnerImg_2 from '~/assets/Partner_2.jpg'
+import PartnerImg_1 from '~/assets/partners/partner-1.jpg'
+import PartnerImg_2 from '~/assets/partners/partner-2.jpg'
 
 function Partner() {
   return (

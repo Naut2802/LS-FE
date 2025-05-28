@@ -1,9 +1,9 @@
-import AnVyImg from '~/assets/AnVy.jpg'
-import GiaGiaImg from '~/assets/GiaGia.jpg'
-import HoangNamImg from '~/assets/HoangNam.jpg'
-import BaoNgocImg from '~/assets/BaoNgoc.jpg'
-import MinhChauImg from '~/assets/MinhChau.jpg'
-import KhaDoanh from '~/assets/KhaDoanh.jpg'
+import AnVyImg from '~/assets/students/AnVy.jpg'
+import GiaGiaImg from '~/assets/students/GiaGia.jpg'
+import HoangNamImg from '~/assets/students/HoangNam.jpg'
+import BaoNgocImg from '~/assets/students/BaoNgoc.jpg'
+import MinhChauImg from '~/assets/students/MinhChau.jpg'
+import KhaDoanh from '~/assets/students/KhaDoanh.jpg'
 
 export const students = [
   { id: 1, name: 'Phạm An Vy', image: AnVyImg, class: 'Lớp Kindy 1' },

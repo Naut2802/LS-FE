@@ -1,82 +1,14 @@
-import { Tabs, Tab, Box, Typography, Pagination, Link, Stack } from '@mui/material';
-import { useState } from 'react';
+import { Tabs, Tab, Box, Typography, Pagination, Stack } from '@mui/material'
+import { useState } from 'react'
 import PlayArrowIcon from '@mui/icons-material/PlayArrow'
-import NewsImg from '~/assets/News.jpg'
+import { news } from '~/data/news'
 
-const categories = ['Tin tức chung', 'Sự kiện', 'Tuyển dụng'];
-
-const newsData = [
-  {
-    id: 1,
-    title: 'Hoạt động hưởng ứng ngày 30/4',
-    subTitle: 'Những ngày này, các bạn nhỏ tại Little Sunny đã cùng nhau trải qua một hành trình thật ý nghĩa',
-    description: '...',
-    category: 'Tin tức chung',
-    image: `${NewsImg}`
-  },
-  {
-    id: 2,
-    title: 'Khám Phá Summer Camp 2025',
-    subTitle: 'Ngày 28/4, các lớp kindy tổ chức khám phá summer camp tại công viên thống nhất',
-    description: '...',
-    category: 'Sự kiện',
-    image: `${NewsImg}`
-  },
-  {
-    id: 3,
-    title: 'Khám Phá Summer Camp 2025',
-    subTitle: 'Ngày 28/4, các lớp kindy tổ chức khám phá summer camp tại công viên thống nhất',
-    description: '...',
-    category: 'Sự kiện',
-    image: `${NewsImg}`
-  },
-  {
-    id: 4,
-    title: 'Khám Phá Summer Camp 2025',
-    subTitle: 'Ngày 28/4, các lớp kindy tổ chức khám phá summer camp tại công viên thống nhất',
-    description: '...',
-    category: 'Sự kiện',
-    image: `${NewsImg}`
-  },
-  {
-    id: 5,
-    title: 'Khám Phá Summer Camp 2025',
-    subTitle: 'Ngày 28/4, các lớp kindy tổ chức khám phá summer camp tại công viên thống nhất',
-    description: '...',
-    category: 'Sự kiện',
-    image: `${NewsImg}`
-  },
-  {
-    id: 6,
-    title: 'Khám Phá Summer Camp 2025',
-    subTitle: 'Ngày 28/4, các lớp kindy tổ chức khám phá summer camp tại công viên thống nhất',
-    description: '...',
-    category: 'Sự kiện',
-    image: `${NewsImg}`
-  },
-  {
-    id: 7,
-    title: 'Khám Phá Summer Camp 2025',
-    subTitle: 'Ngày 28/4, các lớp kindy tổ chức khám phá summer camp tại công viên thống nhất',
-    description: '...',
-    category: 'Sự kiện',
-    image: `${NewsImg}`
-  },
-  {
-    id: 8,
-    title: 'Khám Phá Summer Camp 2025',
-    subTitle: 'Ngày 28/4, các lớp kindy tổ chức khám phá summer camp tại công viên thống nhất',
-    description: '...',
-    category: 'Sự kiện',
-    image: `${NewsImg}`
-  }
-  //...
-];
+const categories = ['Tin tức chung', 'Sự kiện', 'Tuyển dụng']
 
 const ITEMS_PER_PAGE = 6
 
 function NewsTabs() {
-  const [selectedTab, setSelectedTab] = useState(0);
+  const [selectedTab, setSelectedTab] = useState(0)
   const [page, setPage] = useState(1)
 
   const handleTabChange = (_, newValue) => {
@@ -85,12 +17,12 @@ function NewsTabs() {
   }
 
   const handlePageChange = (_, value) => {
-    setPage(value);
+    setPage(value)
   }
 
-  const filteredNews = newsData.filter(
+  const filteredNews = news.filter(
     (item) => item.category === categories[selectedTab]
-  );
+  )
 
   const paginatedNews = filteredNews.slice(
     (page - 1) * ITEMS_PER_PAGE,
@@ -206,7 +138,7 @@ function NewsTabs() {
         )}
       </Box>
     </Box>
-  );
+  )
 }
 
 export default NewsTabs

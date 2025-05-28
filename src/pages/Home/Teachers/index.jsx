@@ -1,10 +1,12 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
-import { Box, Typography, Button } from '@mui/material'
+import { Box, Typography } from '@mui/material'
 import { alpha } from '@mui/material/styles'
-import TeacherImg from '~/assets/Teacher.jpg'
+import TeacherImg from '~/assets/teachers/teacher.jpg'
 import DoneIcon from '@mui/icons-material/Done'
 import MedalIcon from '@mui/icons-material/WorkspacePremiumOutlined'
+import EastIcon from '@mui/icons-material/East'
+import { ViewAllButton } from '~/components/Buttons/ViewAllButton'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Navigation, Autoplay } from 'swiper/modules'
 import 'swiper/css'
@@ -165,29 +167,17 @@ function Teachers() {
           ))}
         </Swiper>
 
-        {/* Nút xem thêm */}
-        <Button
-          variant="outlined"
-          onClick={() => {
-            navigate('/teacher')
-          }}
-          sx={{
-            mt: 5,
-            borderRadius: '50px',
-            borderColor: (theme) => (theme.palette.primary.main),
-            color: (theme) => (theme.palette.primary.main),
-            textTransform: 'none',
-            fontWeight: 'bold',
-            px: 4,
-            py: 1,
-            '&:hover': {
-              backgroundColor: (theme) => (theme.palette.primary.main),
-              color: 'white'
-            }
-          }}
-        >
-          Xem tất cả giáo viên →
-        </Button>
+        <Box sx={{ display: 'flex', justifyContent: 'center', mt: 4 }}>
+          <ViewAllButton
+            onClick={() => {
+              navigate('/student')
+            }}
+            variant="outlined"
+            endIcon={<EastIcon />}
+          >
+            Xem tất cả giáo viên
+          </ViewAllButton>
+        </Box>
       </Box>
     </Box>
   )

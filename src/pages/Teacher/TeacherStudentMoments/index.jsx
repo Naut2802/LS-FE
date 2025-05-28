@@ -9,13 +9,13 @@ import {
 } from '@mui/material'
 import CloseIcon from '@mui/icons-material/Close'
 import { styled } from '@mui/material/styles'
-import MomentImg_1 from '~/assets/Moment_1.jpg'
-import MomentImg_2 from '~/assets/Moment_2.jpg'
-import MomentImg_3 from '~/assets/Moment_3.jpg'
-import MomentImg_4 from '~/assets/Moment_4.jpg'
-import MomentImg_5 from '~/assets/Moment_5.jpg'
-import MomentImg_6 from '~/assets/Moment_6.jpg'
-import MomentImg_7 from '~/assets/Moment_7.jpg'
+import MomentImg_1 from '~/assets/moments/moment-1.jpg'
+import MomentImg_2 from '~/assets/moments/moment-2.jpg'
+import MomentImg_3 from '~/assets/moments/moment-3.jpg'
+import MomentImg_4 from '~/assets/moments/moment-4.jpg'
+import MomentImg_5 from '~/assets/moments/moment-5.jpg'
+import MomentImg_6 from '~/assets/moments/moment-6.jpg'
+import MomentImg_7 from '~/assets/moments/moment-7.jpg'
 
 const ImageContainer = styled(Box)(() => ({
   position: 'relative',
