@@ -1,9 +1,10 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
-import { Box, Typography, Button } from '@mui/material'
+import { Box, Typography } from '@mui/material'
 import { styled } from '@mui/material/styles'
 import EastIcon from '@mui/icons-material/East'
 import { students } from '~/data/students'
+import { ViewAllButton } from '~/components/Buttons/ViewAllButton'
 
 // Styled components
 const StudentCard = styled(Box)(() => ({
@@ -42,17 +43,6 @@ const StudentItem = styled(Box)(({ theme }) => ({
   }
 }))
 
-const ViewAllButton = styled(Button)(({ theme }) => ({
-  padding: theme.spacing(1, 3),
-  borderRadius: '24px',
-  border: `1px solid ${theme.palette.primary.main}`,
-  color: theme.palette.primary.main,
-  '&:hover': {
-    backgroundColor: theme.palette.primary.main,
-    color: 'white'
-  }
-}))
-
 function StudentRecognition() {
   const navigate = useNavigate()
 
@@ -67,7 +57,7 @@ function StudentRecognition() {
         </Typography>
 
         <StudentSection>
-          {students.map((student) => (
+          {students.slice(0, 6).map((student) => (
             <StudentItem key={student.id}>
               <StudentContainer>
                 <StudentCard component='img' src={student.image} alt={student.name}/>

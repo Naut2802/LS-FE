@@ -1,7 +1,7 @@
 import { Box, Typography, Stack, Link, Avatar } from '@mui/material'
 import FacebookIcon from '@mui/icons-material/Facebook'
 import YouTubeIcon from '@mui/icons-material/YouTube'
-import Logo from '~/assets/Logo.jpg'
+import Logo from '~/assets/logo.jpg'
 
 function Footer() {
   return (

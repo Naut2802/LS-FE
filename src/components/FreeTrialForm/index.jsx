@@ -8,8 +8,9 @@ import {
   alpha
 } from '@mui/material'
 import { styled } from '@mui/system'
-import ArrowForwardIcon from '@mui/icons-material/ArrowForward'
-import BackgroundImage from '~/assets/FreeTrialBackground.jpg'
+import FreeTrialBackgroundImg from '~/assets/hero-sections/free-trial-background.jpg'
+import { RegisterButton } from '~/components/Buttons/RegisterButton'
+import EastIcon from '@mui/icons-material/East'
 
 const RoundedInput = styled(InputBase)(() => ({
   backgroundColor: '#fff',
@@ -24,7 +25,7 @@ function FreeTrialForm() {
   return (
     <Box
       sx={{
-        backgroundImage: `url(${BackgroundImage})`,
+        backgroundImage: `url(${FreeTrialBackgroundImg})`,
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         px: 2
@@ -83,28 +84,12 @@ function FreeTrialForm() {
               <MenuItem value="trunghoc">Tiếng Anh Trung Học</MenuItem>
             </Select>
 
-            <Button
-              variant="contained"
-              sx={{
-                width: { xs: 'auto', md: 'auto' },
-                maxWidth: '200px',
-                borderRadius: '50px',
-                bgcolor: (theme) => (theme.palette.primary.main),
-                boxShadow: 'none',
-                color: 'white',
-                fontSize: { xs: '16px', md: '20px' },
-                fontWeight: 'bold',
-                textTransform: 'none',
-                padding: '6px 20px',
-                '&:hover': {
-                  boxShadow: 'none',
-                  bgcolor: '#f1c40f'
-                }
-              }}
-              endIcon={<ArrowForwardIcon />}
+            <RegisterButton
+              variant='contained'
+              endIcon={<EastIcon />}
             >
-              Đăng ký ngay
-            </Button>
+              Xem tất cả học viên
+            </RegisterButton>
           </Box>
         </Box>
       </Box>

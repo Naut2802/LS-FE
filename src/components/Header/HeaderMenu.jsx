@@ -1,7 +1,7 @@
 import * as React from 'react'
 import Box from '@mui/material/Box'
 import Paper from '@mui/material/Paper'
-import logoImage from '~/assets/Logo.jpg'
+import Logo from '~/assets/logo.jpg'
 import Typography from '@mui/material/Typography'
 import Button from '@mui/material/Button'
 import Menu from '@mui/material/Menu'
@@ -10,13 +10,45 @@ import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown'
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp'
 import DownloadIcon from '@mui/icons-material/Download'
 import { Link } from 'react-router-dom'
+import { courses } from '~/data/courses'
+import { RegisterButton } from '~/components/Buttons/RegisterButton'
 
-const subjects = [
-  'Tiếng Anh Mầm Non',
-  'Tiếng Anh Tiểu Học',
-  'Tiếng Anh Trung Học',
-  'Tiển Tiểu Học'
-]
+const subjects = courses.map((course) => course.title)
+
+function capitalizeWords(text) {
+  return text
+    .toLowerCase()
+    .split(' ')
+    .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+    .join(' ')
+}
+
+const HeaderMenuItem = ({ linkTo, title }) => (
+  <Box
+    sx={{
+      display: 'flex',
+      flexWrap: 'wrap',
+      justifyContent: { xs: 'center', md: 'flex-start' },
+      gap: 2
+    }}
+  >
+    <Typography
+      component={Link}
+      to={linkTo}
+      sx={{
+        color: 'white',
+        textDecoration: 'none',
+        fontSize: { xs: '16px', md: '20px' },
+        fontWeight: 'bold',
+        '&:active': {
+          color: '#7f8c8d'
+        }
+      }}
+    >
+      {title}
+    </Typography>
+  </Box>
+)
 
 function HeaderMenu() {
   const [anchorEl, setAnchorEl] = React.useState(null)
@@ -58,7 +90,7 @@ function HeaderMenu() {
           }}
         >
           <Box component='img'
-            src={logoImage} alt='Little Sunny Education Center'
+            src={Logo} alt='Little Sunny Education Center'
             style={{
               width: '100%',
               height: '100%',
@@ -66,30 +98,7 @@ function HeaderMenu() {
             }}
           />
         </Box>
-        <Box
-          sx={{
-            display: 'flex',
-            flexWrap: 'wrap',
-            justifyContent: { xs: 'center', md: 'flex-start' },
-            gap: 2
-          }}
-        >
-          <Typography
-            component={Link}
-            to='/introduce'
-            sx={{
-              color: 'white',
-              textDecoration: 'none',
-              fontSize: { xs: '16px', md: '20px' },
-              fontWeight: 'bold',
-              '&:active': {
-                color: '#7f8c8d'
-              }
-            }}
-          >
-              Giới Thiệu
-          </Typography>
-        </Box>
+        <HeaderMenuItem linkTo='/about' title='Giới Thiệu'/>
         <Box
           sx={{
             display: 'flex',
@@ -152,7 +161,7 @@ function HeaderMenu() {
                     key={index}
                     onClick={handleClose}
                   >
-                    {subject}
+                    {capitalizeWords(subject)}
                   </MenuItem>
                 ))}
               </Box>
@@ -202,76 +211,13 @@ function HeaderMenu() {
             </Box>
           </Menu>
         </Box>
-        <Box
-          sx={{
-            display: 'flex',
-            flexWrap: 'wrap',
-            justifyContent: { xs: 'center', md: 'flex-start' },
-            gap: 2
-          }}
+        <HeaderMenuItem linkTo='/teacher' title='Giáo Viên'/>
+        <HeaderMenuItem linkTo='/news' title='Tin Tức'/>
+        <RegisterButton
+          variant='contained'
         >
-          <Typography
-            component={Link}
-            to='/teacher'
-            sx={{
-              color: 'white',
-              textDecoration: 'none',
-              fontSize: { xs: '16px', md: '20px' },
-              fontWeight: 'bold',
-              '&:active': {
-                color: '#7f8c8d'
-              }
-            }}
-          >
-              Giáo Viên
-          </Typography>
-        </Box>
-        <Box
-          sx={{
-            display: 'flex',
-            flexWrap: 'wrap',
-            justifyContent: { xs: 'center', md: 'flex-start' },
-            gap: 2
-          }}
-        >
-          <Typography
-            component={Link}
-            to='/news'
-            sx={{
-              color: 'white',
-              textDecoration: 'none',
-              fontSize: { xs: '16px', md: '20px' },
-              fontWeight: 'bold',
-              '&:active': {
-                color: '#7f8c8d'
-              }
-            }}
-          >
-              Tin Tức
-          </Typography>
-        </Box>
-        <Box sx={{ my: '12px' }}>
-          <Button
-            variant="contained"
-            sx={{
-              width: { xs: 'auto', md: 'auto' },
-              borderRadius: '50px',
-              bgcolor: (theme) => (theme.palette.primary.main),
-              boxShadow: 'none',
-              color: 'white',
-              fontSize: { xs: '16px', md: '20px' },
-              fontWeight: 'bold',
-              textTransform: 'none',
-              padding: '6px 20px',
-              '&:hover': {
-                boxShadow: 'none',
-                bgcolor: (theme) => (theme.palette.primary.light)
-              }
-            }}
-          >
-              Đăng ký ngay
-          </Button>
-        </Box>
+          Đăng ký ngay
+        </RegisterButton>
       </Box>
     </Box>
   )

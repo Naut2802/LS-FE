@@ -3,18 +3,7 @@ import { Box, Typography, Avatar, Pagination } from '@mui/material'
 import { alpha } from '@mui/material/styles'
 import WorkspacePremiumOutlinedIcon from '@mui/icons-material/WorkspacePremiumOutlined'
 import CheckOutlinedIcon from '@mui/icons-material/CheckOutlined'
-import TeacherImg_1 from '~/assets/Founder.jpg'
-
-const teachers = Array.from({ length: 18 }, (_, i) => ({
-  id: i,
-  name: 'Ms. Huỳnh Thảo Nguyên',
-  quote: 'Một người giáo viên giỏi là một người có thể làm cho học viên của mình cảm thấy học như không học',
-  score: '8.0 IELTS Overall',
-  degree: 'Tốt nghiệp đại học Sài Gòn',
-  subject: 'Giáo viên kỹ năng sống',
-  avatar: i === 0 ? TeacherImg_1 : null,
-  isHighlighted: i === 0 ? true : false
-}))
+import { teachers } from '~/data/teachers'
 
 const ITEMS_PER_PAGE = 12
 

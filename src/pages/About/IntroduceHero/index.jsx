@@ -1,13 +1,13 @@
-import IntroduceBackgroundImg from '~/assets/IntroduceBackground.jpg'
+import IntroduceHeroImg from '~/assets/hero-sections/introduce-hero.jpg'
 import { Box, Button, Typography } from '@mui/material'
 
-function Intro() {
+function IntroduceHero() {
   return (
     <Box
       sx={{
         width: '100%',
         minHeight: '600px',
-        backgroundImage: `url(${IntroduceBackgroundImg})`,
+        backgroundImage: `url(${IntroduceHeroImg})`,
         backgroundSize: 'cover',
         backgroundPosition: 'center'
       }}
@@ -73,4 +73,4 @@ function Intro() {
   )
 }
 
-export default Intro
+export default IntroduceHero

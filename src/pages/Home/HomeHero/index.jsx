@@ -1,7 +1,7 @@
 import Box from '@mui/material/Box'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Pagination, Autoplay } from 'swiper/modules'
-import BannerImg from '~/assets/HomeBackground.jpg'
+import HomeHeroImg from '~/assets/hero-sections/home-hero.jpg'
 import 'swiper/css'
 import 'swiper/css/pagination'
 import '~/utils/swiper.css'
@@ -43,7 +43,7 @@ function Banner() {
           <SwiperSlide>
             <Box
               component="img"
-              src={BannerImg}
+              src={HomeHeroImg}
               alt="Banner 1"
               sx={{
                 width: '100%',
@@ -55,7 +55,7 @@ function Banner() {
           <SwiperSlide>
             <Box
               component="img"
-              src={BannerImg}
+              src={HomeHeroImg}
               alt="Banner 2"
               sx={{
                 width: '100%',
@@ -67,7 +67,7 @@ function Banner() {
           <SwiperSlide>
             <Box
               component="img"
-              src={BannerImg}
+              src={HomeHeroImg}
               alt="Banner 3"
               sx={{
                 width: '100%',
@@ -79,7 +79,7 @@ function Banner() {
           <SwiperSlide>
             <Box
               component="img"
-              src={BannerImg}
+              src={HomeHeroImg}
               alt="Banner 4"
               sx={{
                 width: '100%',

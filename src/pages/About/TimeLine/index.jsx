@@ -8,7 +8,7 @@ import {
   TimelineOppositeContent,
   TimelineDot
 } from '@mui/lab'
-import TimelineImg_1 from '~/assets/Timeline_1.jpg'
+import TimelineImg_1 from '~/assets/students/timeline-1.jpg'
 
 const timelineData = [
   {

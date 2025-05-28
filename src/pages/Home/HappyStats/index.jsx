@@ -1,7 +1,7 @@
 import { Box, Typography, Paper } from '@mui/material'
 import { alpha } from '@mui/material/styles'
 import SchoolIcon from '@mui/icons-material/School'
-import HappyStatsImg from '~/assets/HappyStats.jpg'
+import HappyStatsImg from '~/assets/hero-sections/happy-stats.jpg'
 
 const statsData = [
   { value: '5 năm', description: 'Đồng hành cùng hàng trăm ngàn học viên trên khắp cả nước trong các kỳ thi' },
@@ -59,10 +59,10 @@ function HappyStats() {
                 key={index}
                 elevation={3}
                 sx={{
-                  flex: '1 1 calc(50% - 16px)', // Chia 2 cột trên màn hình nhỏ
-                  maxWidth: 'calc(50% - 16px)', // Đảm bảo chiều rộng tối đa
+                  flex: '1 1 calc(50% - 16px)',
+                  maxWidth: 'calc(50% - 16px)',
                   '@media (min-width: 960px)': {
-                    flex: '1 1 calc(33.333% - 16px)', // Chia 3 cột trên màn hình lớn
+                    flex: '1 1 calc(33.333% - 16px)',
                     maxWidth: 'calc(33.333% - 16px)'
                   },
                   px: 1.5,

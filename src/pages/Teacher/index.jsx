@@ -1,4 +1,4 @@
-import TeacherIntro from '~/pages/Teacher/Intro'
+import TeacherIntro from '~/pages/Teacher/TeacherHero'
 import Highlights from '~/pages/Teacher/Highlights'
 import TeacherTeam from '~/pages/Teacher/TeacherTeam'
 import TeacherStudentMoments from '~/pages/Teacher/TeacherStudentMoments'
