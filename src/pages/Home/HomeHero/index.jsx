@@ -6,7 +6,7 @@ import 'swiper/css'
 import 'swiper/css/pagination'
 import '~/utils/swiper.css'
 
-function Banner() {
+function HomeHero() {
   return (
     <>
       <Box sx={{
@@ -94,4 +94,4 @@ function Banner() {
   )
 }
 
-export default Banner
+export default HomeHero
