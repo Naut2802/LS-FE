@@ -1,12 +1,12 @@
-import Hero from '~/pages/Students/StudentHero'
-import RecognitionList from '~/pages/Students/RecognitionList'
-import Feedbacks from '~/pages/Students/Feedbacks'
+import StudentHero from '~/pages/Student/StudentHero'
+import RecognitionList from '~/pages/Student/RecognitionList'
+import Feedbacks from '~/pages/Student/Feedbacks'
 import FreeTrialForm from '~/components/FreeTrialForm'
 
 function Student() {
   return (
     <>
-      <Hero />
+      <StudentHero />
       <RecognitionList />
       <Feedbacks />
       <FreeTrialForm />

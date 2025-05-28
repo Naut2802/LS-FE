@@ -1,7 +1,7 @@
 import IntroduceHeroImg from '~/assets/hero-sections/introduce-hero.jpg'
 import { Box, Button, Typography } from '@mui/material'
 
-function IntroduceHero() {
+function AboutHero() {
   return (
     <Box
       sx={{
@@ -73,4 +73,4 @@ function IntroduceHero() {
   )
 }
 
-export default IntroduceHero
+export default AboutHero

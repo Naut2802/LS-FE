@@ -1,4 +1,4 @@
-import Intro from '~/pages/About/IntroduceHero'
+import AboutHero from '~/pages/About/AboutHero'
 import TimeLine from '~/pages/About/TimeLine'
 import Founder from '~/pages/About/Founder'
 import Values from '~/pages/About/Values'
@@ -8,7 +8,7 @@ import FreeTrialForm from '~/components/FreeTrialForm'
 function About() {
   return (
     <>
-      <Intro />
+      <AboutHero />
       <TimeLine />
       <Founder />
       <Values />

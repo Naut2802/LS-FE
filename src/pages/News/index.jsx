@@ -1,10 +1,10 @@
-import Intro from '~/pages/News/NewsHero'
+import NewsHero from '~/pages/News/NewsHero'
 import NewsTabs from '~/pages/News/NewsTabs'
 
 function News() {
   return (
     <>
-      <Intro />
+      <NewsHero />
       <NewsTabs />
     </>
   )
