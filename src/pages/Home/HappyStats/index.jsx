@@ -1,6 +1,6 @@
 import { Box, Typography, Paper } from '@mui/material'
 import { alpha } from '@mui/material/styles'
-import SchoolIcon from '@mui/icons-material/School'
+import SchoolIcon from '@mui/icons-material/SchoolOutlined'
 import HappyStatsImg from '~/assets/hero-sections/happy-stats.jpg'
 
 const statsData = [
@@ -18,10 +18,19 @@ function HappyStats() {
         <Typography variant='h3' gutterBottom>
           NHỮNG CON SỐ HẠNH PHÚC
         </Typography>
-        <Typography variant='subtitle1' color='text.primary' maxWidth='md' mx='auto' sx={{ mb: 4 }}>
+        <Typography
+          variant='subtitle1'
+          sx={{
+            mb: 4,
+            fontWeight: 'bold',
+            maxWidth: 'md',
+            mx: 'auto',
+            color: 'text.primary'
+          }}
+        >
           <strong style={{ color: '#FF7A00' }}>LITTLE SUNNY</strong> là trung tâm anh ngữ mang trong mình sứ mệnh hoàn thiện kỹ năng,
           ngôn ngữ và giá trị đạo đức, từ đó giúp thế hệ trẻ Việt Nam chủ động kiến tạo một tương lai hạnh phúc. Với
-          phương châm <em style={{ color: '#FF7A00' }}>“lấy người học làm trọng tâm trong mọi hoạt động”</em>, cam kết đồng hành cùng con trong hành
+          phương châm <strong style={{ color: '#FF7A00' }}>“lấy người học làm trọng tâm trong mọi hoạt động”</strong>, cam kết đồng hành cùng con trong hành
           trình chinh phục ngoại ngữ và đem lại hiệu quả đào tạo cao nhất.
         </Typography>
 
@@ -29,8 +38,9 @@ function HappyStats() {
           sx={{
             display: 'flex',
             flexDirection: { xs: 'column', md: 'row' },
-            alignItems: 'center',
-            gap: 4
+            alignItems: { xs: 'center', md: 'stretch' },
+            gap: 4,
+            height: { md: 380 }
           }}
         >
           <Box
@@ -39,7 +49,7 @@ function HappyStats() {
             alt="Banner"
             sx={{
               width: { xs: '100%', md: '50%' },
-              height: 'auto',
+              height: { xs: 'auto', md: '100%' },
               borderRadius: 4,
               objectFit: 'cover'
             }}
@@ -48,6 +58,7 @@ function HappyStats() {
           <Box
             sx={{
               width: { xs: '100%', md: '50%' },
+              height: { xs: 'auto', md: '100%' },
               display: 'flex',
               flexWrap: 'wrap',
               justifyContent: { xs: 'space-between', md: 'normal' },

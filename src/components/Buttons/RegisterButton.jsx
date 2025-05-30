@@ -7,7 +7,7 @@ export const RegisterButton = styled(Button)(({ theme }) => ({
   backgroundColor: theme.palette.primary.main,
   boxShadow: 'none',
   color: 'white',
-  fontSize: '20px',
+  fontSize: '1rem',
   fontWeight: 'bold',
   textTransform: 'none',
   padding: '6px 20px',
