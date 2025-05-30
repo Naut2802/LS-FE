@@ -189,21 +189,35 @@ function HeaderMenu() {
               {subjects.map((subject, index) => (
                 <MenuItem
                   key={index}
-                  onClick={handleClose}
                   sx={{
-                    fontWeight: 'bold',
-                    color: 'text.primary',
-                    fontSize: '1rem',
-                    borderRadius: 1,
-                    mb: 0.5,
+                    cursor: 'default',
                     background: 'none',
                     '&:hover': {
-                      bgcolor: 'transparent',
-                      color: 'secondary.main'
+                      bgcolor: 'transparent'
+                    },
+                    '& span': {
+                      display: 'none'
                     }
                   }}
                 >
-                  {capitalizeWords(subject)}
+                  <Typography
+                    onClick={handleClose}
+                    sx={{
+                      cursor: 'pointer',
+                      fontWeight: 'bold',
+                      color: 'text.primary',
+                      fontSize: '1rem',
+                      borderRadius: 1,
+                      mb: 0.5,
+                      background: 'none',
+                      '&:hover': {
+                        bgcolor: 'transparent',
+                        color: 'secondary.main'
+                      }
+                    }}
+                  >
+                    {capitalizeWords(subject)}
+                  </Typography>
                 </MenuItem>
               ))}
             </Box>
