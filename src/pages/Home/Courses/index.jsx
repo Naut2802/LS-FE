@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import { useTheme, useMediaQuery } from '@mui/material'
 import { Box, Typography, Card, CardMedia, CardContent, IconButton } from '@mui/material'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Navigation, Pagination, Autoplay } from 'swiper/modules'
@@ -36,27 +37,52 @@ const CourseCard = ({ course }) => (
         borderRadius: '10px'
       }}
     />
-    <CardContent sx={{ backgroundColor: course.color, color: '#fff', position: 'relative', px: 0 }}>
-      <Typography fontWeight="bold">{course.title}</Typography>
-      <Typography fontSize="14px" fontWeight="medium">
-        {course.age}
-      </Typography>
-      <IconButton
-        sx={{
-          position: 'absolute',
-          bottom: 16,
-          right: 16,
-          backgroundColor: 'transparent',
-          border: '2px solid #fff',
-          color: '#fff',
-          '&:hover': {
-            backgroundColor: '#eee',
-            color: `${course.color}`
-          }
-        }}
-      >
-        <ArrowForwardIcon />
-      </IconButton>
+    <CardContent
+      sx={{
+        display: 'flex',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        backgroundColor: course.color,
+        color: '#fff',
+        py: 2,
+        px: 0,
+        '&:last-child': {
+          pb: 0
+        }
+      }}
+    >
+      <Box>
+        <Typography
+          sx={{
+            fontSize: '20px',
+            fontWeight: 'bold',
+            overflow: 'hidden',
+            textOverflow: 'ellipsis',
+            whiteSpace: 'nowrap'
+          }}
+        >
+          {course.title}
+        </Typography>
+        <Typography fontSize='18px' fontWeight="bold">
+          {course.age}
+        </Typography>
+      </Box>
+      <Box>
+        <IconButton
+          sx={{
+            backgroundColor: 'transparent',
+            border: '2px solid #fff',
+            color: '#fff',
+            '&:hover': {
+              backgroundColor: '#eee',
+              color: `${course.color}`
+            },
+            mr: 1
+          }}
+        >
+          <ArrowForwardIcon />
+        </IconButton>
+      </Box>
     </CardContent>
   </Card>
 )
@@ -64,22 +90,16 @@ const CourseCard = ({ course }) => (
 function Courses() {
   const [slides, setSlides] = useState(groupCourses(courses, 3))
 
+  const theme = useTheme()
+
+  const isXs = useMediaQuery(theme.breakpoints.only('xs'))
+  const isSm = useMediaQuery(theme.breakpoints.only('sm'))
+
   useEffect(() => {
-    const handleResize = () => {
-      const width = window.innerWidth
-      let itemsPerSlide = 3
-      if (width < 600) itemsPerSlide = 1
-      else if (width < 900) itemsPerSlide = 2
-      else itemsPerSlide = 3
+    const itemsPerSlide = isXs ? 1 : isSm ? 2 : 3
 
-      setSlides(groupCourses(courses, itemsPerSlide))
-    }
-
-    window.addEventListener('resize', handleResize)
-    handleResize()
-
-    return () => window.removeEventListener('resize', handleResize)
-  }, [])
+    setSlides(groupCourses(courses, itemsPerSlide))
+  }, [isXs, isSm])
 
   return (
     <Box sx={{ py: 8, px: 2 }}>
@@ -122,7 +142,7 @@ function Courses() {
                   mx: 'auto',
                   display: 'flex',
                   justifyContent: 'center',
-                  gap: 3
+                  gap: 3.5
                 }}
               >
                 {group.map((course, i) => (

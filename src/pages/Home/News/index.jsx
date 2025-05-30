@@ -3,6 +3,38 @@ import { useNavigate } from 'react-router-dom'
 import { news } from '~/data/news'
 import { ViewAllButton } from '~/components/Buttons/ViewAllButton'
 import EastIcon from '@mui/icons-material/East'
+import ArrowForwardIcon from '@mui/icons-material/ArrowForward'
+
+function ReadMoreButton() {
+  return (
+    <Box
+      sx={{
+        display: 'flex',
+        alignItems: 'center',
+        color: 'primary.main',
+        cursor: 'pointer',
+        gap: 0.5,
+        '&:hover a': {
+          fontWeight: 'bold'
+        },
+        '&:hover .MuiSvgIcon-root': {
+          fontSize: '1.175rem'
+        }
+      }}
+    >
+      <Typography
+        component={Link}
+        to='/news'
+        sx={{
+          textDecoration: 'none'
+        }}
+      >
+        Đọc tiếp
+      </Typography>
+      <ArrowForwardIcon fontSize='1rem' sx={{ fontWeight: 'light' }}/>
+    </Box>
+  )
+}
 
 function News() {
   const navigate = useNavigate()
@@ -71,23 +103,7 @@ function News() {
               <Typography variant="body2" color="text.secondary" sx={{ mb: 2 }}>
                 {news.at(0).subTitle}
               </Typography>
-              <Link
-                href="#"
-                underline="none"
-                sx={{
-                  p: '10px',
-                  color: '#FF8F19',
-                  fontWeight: 'bold',
-                  textTransform: 'none',
-                  '&:hover': {
-                    textDecoration: 'underline',
-                    bgcolor: '#f5f6fa',
-                    borderRadius: '20px'
-                  }
-                }}
-              >
-                Đọc tiếp →
-              </Link>
+              <ReadMoreButton />
             </Box>
           </Box>
 
@@ -132,23 +148,7 @@ function News() {
                   <Typography variant="body2" color="text.secondary" sx={{ mb: 1 }}>
                     {item.subTitle}
                   </Typography>
-                  <Link
-                    href="#"
-                    underline="none"
-                    sx={{
-                      p: '10px',
-                      color: '#FF8F19',
-                      fontWeight: 'bold',
-                      textTransform: 'none',
-                      '&:hover': {
-                        textDecoration: 'underline',
-                        bgcolor: '#f5f6fa',
-                        borderRadius: '20px'
-                      }
-                    }}
-                  >
-                    Đọc tiếp →
-                  </Link>
+                  <ReadMoreButton />
                 </Box>
               </Box>
             ))}

@@ -1,6 +1,6 @@
-import * as React from 'react'
+import { useState, useRef, useEffect } from 'react'
+import { useTheme, useMediaQuery } from '@mui/material'
 import Box from '@mui/material/Box'
-import Paper from '@mui/material/Paper'
 import Logo from '~/assets/logo.jpg'
 import Typography from '@mui/material/Typography'
 import Button from '@mui/material/Button'
@@ -38,7 +38,6 @@ const HeaderMenuItem = ({ linkTo, title }) => (
       sx={{
         color: 'white',
         textDecoration: 'none',
-        fontSize: { xs: '16px', md: '20px' },
         fontWeight: 'bold',
         '&:active': {
           color: '#7f8c8d'
@@ -51,9 +50,30 @@ const HeaderMenuItem = ({ linkTo, title }) => (
 )
 
 function HeaderMenu() {
-  const [anchorEl, setAnchorEl] = React.useState(null)
-  const [icon, setIcon] = React.useState(<KeyboardArrowDownIcon />)
+  const [anchorEl, setAnchorEl] = useState(null)
+  const [menuWidth, setMenuWidth] = useState(null)
+  const [leftPosition, setLeftPosition] = useState(null)
+  const [icon, setIcon] = useState(<KeyboardArrowDownIcon />)
+
+  const logoRef = useRef()
+  const registerRef = useRef()
   const open = Boolean(anchorEl)
+
+  const theme = useTheme()
+
+  const isXs = useMediaQuery(theme.breakpoints.only('xs'))
+  const isSm = useMediaQuery(theme.breakpoints.only('sm'))
+  const isMdUp = useMediaQuery(theme.breakpoints.up('md'))
+
+  useEffect(() => {
+    if (logoRef.current && registerRef.current) {
+      const left = logoRef.current.offsetLeft
+      const right = registerRef.current.offsetLeft + registerRef.current.offsetWidth
+
+      setLeftPosition(left)
+      setMenuWidth(right - left)
+    }
+  }, [leftPosition, menuWidth, isXs, isSm, isMdUp])
 
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget)
@@ -70,23 +90,25 @@ function HeaderMenu() {
         bgcolor: (theme) => (theme.palette.secondary.main)
       }}
     >
-      <Box sx={{
-        maxWidth: 'lg',
-        mx: 'auto',
-        px: 2,
-        py: 0.5,
-        gap: 2,
-        display: 'flex',
-        flexWrap: 'wrap',
-        justifyContent: { xs: 'center', md: 'space-between' },
-        alignItems: 'center'
-      }}>
+      <Box
+        sx={{
+          maxWidth: 'lg',
+          mx: 'auto',
+          px: 2,
+          py: 1,
+          gap: 2,
+          display: 'flex',
+          flexWrap: 'wrap',
+          justifyContent: { xs: 'center', md: 'space-between' },
+          alignItems: 'center'
+        }}
+      >
         <Box
           component={Link}
           to='/'
+          ref={logoRef}
           sx={{
-            my: '12px',
-            width: { xs: '80px', md: '96px' }
+            width: { xs: '100px', md: '128px' }
           }}
         >
           <Box component='img'
@@ -118,7 +140,7 @@ function HeaderMenu() {
             sx={{
               color: (theme) => (open ? theme.palette.primary.main : 'white'),
               textTransform: 'none',
-              fontSize: { xs: '16px', md: '20px' },
+              fontSize: '1rem',
               fontWeight: 'bold',
               '& .MuiSvgIcon-root': {
                 fontSize: { xs: '24px !important', md: '34px !important' }
@@ -130,91 +152,104 @@ function HeaderMenu() {
           >
             Chương Trình Học
           </Button>
-          <Menu
-            id="basic-menu"
-            anchorEl={anchorEl}
-            open={open}
-            onClose={handleClose}
-            MenuListProps={{
-              'aria-labelledby': 'basic-button'
-            }}
+        </Box>
+        <Menu
+          id="basic-menu"
+          anchorEl={anchorEl}
+          open={open}
+          onClose={handleClose}
+          MenuListProps={{
+            'aria-labelledby': 'basic-button'
+          }}
+          PaperProps={{
+            sx: {
+              borderRadius: 3,
+              boxShadow: 3,
+              px: 3,
+              py: 1,
+              minWidth: { xs: 300, sm: menuWidth },
+              bgcolor: '#fff',
+              mt: { xs: 1, sm: 6 },
+              left: { sm: `${leftPosition}px !important` }
+            }
+          }}
+        >
+          <Box
             sx={{
-              '& .MuiMenuItem-root:hover': {
-                color: (theme) => (theme.palette.secondary.light),
-                bgcolor: 'white'
-              }
+              display: 'flex',
+              justifyContent: { xs: 'center', md: 'space-between' },
+              alignItems: 'flex-start',
+              flexWrap: 'wrap',
+              gap: 4,
+              width: '100%'
             }}
           >
-            <Box
-              sx={{
-                minWidth: '600px',
-                display: 'flex',
-                justifyContent: 'space-between',
-                alignItems: 'flex-start',
-                gap: 4,
-                mx: 2
-              }}
-            >
-              <Box sx={{ flex: 1 }}>
-                {subjects.map((subject, index) => (
-                  <MenuItem
-                    key={index}
-                    onClick={handleClose}
-                  >
-                    {capitalizeWords(subject)}
-                  </MenuItem>
-                ))}
-              </Box>
-              <Box sx={{
-                display: 'flex',
-                flexDirection: 'column',
-                alignItems: 'center',
-                gap: 2
-              }}>
-                {/* Broucher preview placeholder */}
-                <Paper
+            {/* Danh sách chương trình */}
+            <Box sx={{ flex: 1 }}>
+              {subjects.map((subject, index) => (
+                <MenuItem
+                  key={index}
+                  onClick={handleClose}
                   sx={{
-                    width: 160,
-                    height: 80,
-                    backgroundColor: '#e0e0e0',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
+                    fontWeight: 'bold',
+                    color: 'text.primary',
+                    fontSize: '1rem',
                     borderRadius: 1,
-                    boxShadow: 2
-                  }}
-                >
-                </Paper>
-
-                {/* Download button */}
-                <Button
-                  variant="contained"
-                  startIcon={<DownloadIcon />}
-                  sx={{
-                    bgcolor: 'transparent',
-                    boxShadow: 'none',
-                    color: 'secondary.main',
-                    textTransform: 'none',
-                    fontWeight: 500,
-                    px: 3,
-                    py: 1,
-                    borderRadius: 2,
+                    mb: 0.5,
+                    background: 'none',
                     '&:hover': {
-                      color: 'primary.main',
-                      boxShadow: 'none'
+                      bgcolor: 'transparent',
+                      color: 'secondary.main'
                     }
                   }}
                 >
-                  Tải Broucher
-                </Button>
-              </Box>
+                  {capitalizeWords(subject)}
+                </MenuItem>
+              ))}
             </Box>
-          </Menu>
-        </Box>
+            {/* Preview và nút tải */}
+            <Box
+              sx={{
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'center',
+                gap: 1,
+                minWidth: 200
+              }}
+            >
+              <Box
+                sx={{
+                  width: 180,
+                  height: 90,
+                  backgroundColor: '#e0e0e0',
+                  borderRadius: 2,
+                  mb: 1
+                }}
+              />
+              <Button
+                variant="text"
+                startIcon={<DownloadIcon />}
+                sx={{
+                  color: 'secondary.main',
+                  fontWeight: 600,
+                  fontSize: '1rem',
+                  textTransform: 'none',
+                  '&:hover': {
+                    color: 'primary.main',
+                    bgcolor: 'transparent'
+                  }
+                }}
+              >
+                Tải Broucher
+              </Button>
+            </Box>
+          </Box>
+        </Menu>
         <HeaderMenuItem linkTo='/teacher' title='Giáo Viên'/>
         <HeaderMenuItem linkTo='/news' title='Tin Tức'/>
         <RegisterButton
           variant='contained'
+          ref={registerRef}
         >
           Đăng ký ngay
         </RegisterButton>

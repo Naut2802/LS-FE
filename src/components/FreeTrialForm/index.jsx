@@ -88,7 +88,7 @@ function FreeTrialForm() {
               variant='contained'
               endIcon={<EastIcon />}
             >
-              Xem tất cả học viên
+              Đăng ký ngay
             </RegisterButton>
           </Box>
         </Box>
