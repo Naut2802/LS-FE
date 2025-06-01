@@ -1,5 +1,10 @@
 import { createTheme } from '@mui/material/styles'
-import '@fontsource/inter'
+import '@fontsource/inter/400.css'
+import '@fontsource/inter/500.css'
+import '@fontsource/inter/600.css'
+import '@fontsource/inter/700.css'
+import '@fontsource/inter/800.css'
+import '@fontsource/inter/900.css'
 
 const theme = createTheme({
   palette: {
@@ -19,27 +24,20 @@ const theme = createTheme({
       styleOverrides: {
         h3: ({ theme }) => ({
           color: theme.palette.primary.main,
-          fontWeight: 'bold',
+          fontWeight: '900',
           [theme.breakpoints.down('sm')]: {
             fontSize: '2.125rem'
           }
         }),
         h6: ({ theme }) => ({
           color: theme.palette.primary.main,
-          fontWeight: 'bold'
+          fontWeight: '900'
         })
       }
     }
   },
   typography: {
-    fontFamily: [
-      'Inter',
-      '-apple-system',
-      'BlinkMacSystemFont',
-      '"Segoe UI"',
-      'Arial',
-      'sans-serif'
-    ].join(',')
+    fontFamily: '"Inter"'
   }
 })
 

@@ -30,22 +30,21 @@ const RoundedTextField = styled(TextField)(() => ({
     borderRadius: 50,
     fontSize: 16,
     boxShadow: '0 0 5px rgba(0,0,0,0.1)',
+    '& fieldset': {
+      borderColor: 'transparent'
+    },
     '& .MuiInputBase-input': {
       textAlign: 'center'
     },
-    '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
+    '&.Mui-focused fieldset': {
       border: 'none'
     },
-    '&:hover .MuiOutlinedInput-notchedOutline': {
-      border: 'none'
+    '&:hover fieldset': {
+      borderColor: 'transparent'
     }
   }
 }))
 
-const errorStyle = {
-  borderColor: '#d32f2f !important',
-  borderStyle: 'solid'
-}
 
 function FreeTrialForm() {
   const [formData, setFormData] = useState({
@@ -64,7 +63,6 @@ function FreeTrialForm() {
     severity: 'success'
   })
   const [isSubmitting, setIsSubmitting] = useState(false)
-  // const [submitStatus, setSubmitStatus] = useState('')
 
   const FORM_ID = '1FAIpQLSc-reniYidMTvL2cW7WZRi4U6K2LjhlRdq9d6UDLpdaNLUuUw'
   const ENTRY_IDS = {
@@ -108,23 +106,19 @@ function FreeTrialForm() {
     setIsSubmitting(true)
 
     try {
-      // URL để submit đến Google Forms
       const formUrl = `https://docs.google.com/forms/d/e/${FORM_ID}/formResponse`
 
-      // Tạo FormData để gửi
       const submitData = new FormData()
       submitData.append(ENTRY_IDS.parentName, formData.parentName)
       submitData.append(ENTRY_IDS.phone, formData.phone)
       submitData.append(ENTRY_IDS.subject, formData.subject)
 
-      // Gửi data đến Google Forms
       await fetch(formUrl, {
         method: 'POST',
         body: submitData,
-        mode: 'no-cors' // Quan trọng: Google Forms yêu cầu no-cors
+        mode: 'no-cors'
       })
 
-      // Vì mode no-cors nên không thể check response, nhưng thường thành công
       setSnackbar({
         open: true,
         message: 'Gửi thành công! Trung tâm sẽ liên hệ với phụ huynh sớm nhất.',
@@ -203,9 +197,6 @@ function FreeTrialForm() {
               }}
               error={errors.parentName}
               helperText={errors.parentName ? 'Vui lòng nhập họ tên phụ huynh' : ''}
-              sx={{
-                ...(errors.parentName ? errorStyle : {})
-              }}
               required
             />
             <RoundedTextField
@@ -222,9 +213,6 @@ function FreeTrialForm() {
               }}
               error={errors.phone}
               helperText={errors.phone ? 'Vui lòng nhập số điện thoại hợp lệ' : ''}
-              sx={{
-                ...(errors.phone ? errorStyle : {})
-              }}
               required
             />
             <RoundedTextField
@@ -248,7 +236,6 @@ function FreeTrialForm() {
                   selected === '' ? 'Khóa học phù hợp với bé' : selected
               }}
               sx={{
-                ...(errors.subject ? errorStyle : {}),
                 '& .MuiSelect-icon': {
                   color: '#aaa'
                 }

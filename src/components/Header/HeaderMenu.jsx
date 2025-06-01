@@ -228,13 +228,13 @@ function HeaderMenu() {
                 flexDirection: 'column',
                 alignItems: 'center',
                 gap: 1,
-                minWidth: 200
+                minWidth: 300
               }}
             >
               <Box
                 sx={{
-                  width: 180,
-                  height: 90,
+                  width: 240,
+                  height: 120,
                   backgroundColor: '#e0e0e0',
                   borderRadius: 2,
                   mb: 1
