@@ -10,6 +10,12 @@ export const courses = [
     color: '#00C9B6'
   },
   {
+    title: 'TIỀN TIỂU HỌC',
+    age: '(3-6 Tuổi)',
+    image: `${CourseImg_1}`,
+    color: '#65B800'
+  },
+  {
     title: 'TIẾNG ANH TIỂU HỌC',
     age: '(6-10 Tuổi)',
     image: `${CourseImg_2}`,
@@ -17,12 +23,6 @@ export const courses = [
   },
   {
     title: 'TIẾNG ANH TRUNG HỌC',
-    age: '(11-15 Tuổi)',
-    image: `${CourseImg_3}`,
-    color: '#65B800'
-  },
-  {
-    title: 'TIỀN TIỂU HỌC',
     age: '(11-15 Tuổi)',
     image: `${CourseImg_3}`,
     color: '#65B800'
