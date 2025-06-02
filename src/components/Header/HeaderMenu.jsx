@@ -108,7 +108,8 @@ function HeaderMenu() {
           to='/'
           ref={logoRef}
           sx={{
-            width: { xs: '100px', md: '128px' }
+            width: { xs: 78, md: 96 },
+            py: 1
           }}
         >
           <Box component='img'
