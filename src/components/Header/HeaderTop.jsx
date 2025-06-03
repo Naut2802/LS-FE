@@ -17,7 +17,9 @@ function HeaderTop() {
   return (
     <Box
       sx={{
-        bgcolor: (theme) => (theme.palette.primary.light)
+        bgcolor: (theme) => (theme.palette.primary.light),
+        position: 'relative',
+        zIndex: '2'
       }}
     >
       <Box sx={{

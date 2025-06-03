@@ -148,7 +148,9 @@ function FreeTrialForm() {
         backgroundImage: `url(${FreeTrialBackgroundImg})`,
         backgroundSize: 'cover',
         backgroundPosition: 'center',
-        px: 2
+        px: 2,
+        position: 'relative',
+        zIndex: '1'
       }}
     >
       <Box
