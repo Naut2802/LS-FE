@@ -1,20 +1,25 @@
-import { Box, Typography, Link } from '@mui/material'
-import { useNavigate } from 'react-router-dom'
-import { news } from '~/data/news'
+import { useState, useEffect } from 'react'
+import { Box, Typography } from '@mui/material'
+import { useNavigate, Link } from 'react-router-dom'
+import { getAllNews, getHotNews } from '~/data/newsService'
 import { ViewAllButton } from '~/components/Buttons/ViewAllButton'
 import EastIcon from '@mui/icons-material/East'
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward'
+import RelatedPosts from '~/pages/News/RelatedPosts'
 
-function ReadMoreButton() {
+function ReadMoreButton({ linkTo, id }) {
   return (
     <Box
+      component={Link}
+      to={`${linkTo}/${id}`}
       sx={{
         display: 'flex',
+        textDecoration: 'none',
         alignItems: 'center',
         color: 'primary.main',
         cursor: 'pointer',
         gap: 0.5,
-        '&:hover a': {
+        '&:hover p': {
           fontWeight: 'bold'
         },
         '&:hover .MuiSvgIcon-root': {
@@ -22,13 +27,7 @@ function ReadMoreButton() {
         }
       }}
     >
-      <Typography
-        component={Link}
-        to='/news'
-        sx={{
-          textDecoration: 'none'
-        }}
-      >
+      <Typography>
         Đọc tiếp
       </Typography>
       <ArrowForwardIcon fontSize='1rem' sx={{ fontWeight: 'light' }}/>
@@ -37,7 +36,30 @@ function ReadMoreButton() {
 }
 
 function News() {
+  const [hotNewsItem, setHotNewsItem] = useState(null)
+  const [allNews, setAllNews] = useState([])
   const navigate = useNavigate()
+
+  useEffect(() => {
+    getHotNews().then((data) => {
+      setHotNewsItem(data)
+    })
+    getAllNews().then((data) => {
+      setAllNews(data)
+    })
+  }, [])
+
+  if (!hotNewsItem || !allNews) return (
+    <Box
+      sx={{
+        maxWidth: 'lg',
+        mx: 'auto',
+        py: 6,
+        px: 2
+      }}
+    >
+    </Box>
+  )
 
   return (
     <Box sx={{ py: 8, px: 2 }}>
@@ -81,7 +103,7 @@ function News() {
           >
             <Box
               component="img"
-              src={news.at(0).image}
+              src={hotNewsItem.image}
               alt="Hoạt Động Hưởng Ứng Ngày 30/4"
               sx={{
                 width: '100%',
@@ -98,12 +120,18 @@ function News() {
                 color="text.primary"
                 sx={{ mb: 1 }}
               >
-                {news.at(0).title}
+                {hotNewsItem.title}
               </Typography>
-              <Typography variant="body2" color="text.secondary" sx={{ mb: 2 }}>
-                {news.at(0).subTitle}
+              <Typography
+                variant="body2"
+                color="text.secondary"
+                sx={{
+                  mb: 2
+                }}
+              >
+                {hotNewsItem.summary}
               </Typography>
-              <ReadMoreButton />
+              <ReadMoreButton linkTo='/news' id={hotNewsItem.id}/>
             </Box>
           </Box>
 
@@ -116,7 +144,7 @@ function News() {
               gap: 2
             }}
           >
-            {news.slice(0, 4).map((item) => (
+            {allNews.slice(0, 4).map((item) => (
               <Box
                 key={item.id}
                 sx={{
@@ -146,9 +174,9 @@ function News() {
                     {item.title}
                   </Typography>
                   <Typography variant="body2" color="text.secondary" sx={{ mb: 1 }}>
-                    {item.subTitle}
+                    {item.summary}
                   </Typography>
-                  <ReadMoreButton />
+                  <ReadMoreButton linkTo='/news' id={item.id}/>
                 </Box>
               </Box>
             ))}

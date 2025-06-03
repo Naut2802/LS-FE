@@ -1,15 +1,26 @@
 import { Tabs, Tab, Box, Typography, Pagination, Stack } from '@mui/material'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import PlayArrowIcon from '@mui/icons-material/PlayArrow'
-import { news } from '~/data/news'
+import { useNavigate } from 'react-router-dom'
+import { getAllNews } from '~/data/newsService'
 
 const categories = ['Tin tức chung', 'Sự kiện', 'Tuyển dụng']
 
 const ITEMS_PER_PAGE = 6
 
 function NewsTabs() {
+  const [allNews, setAllNews] = useState([])
+  const [loading, setLoading] = useState(true)
   const [selectedTab, setSelectedTab] = useState(0)
   const [page, setPage] = useState(1)
+  const navigate = useNavigate()
+
+  useEffect(() => {
+    getAllNews().then((data) => {
+      setAllNews(data)
+      setLoading(false)
+    })
+  }, [])
 
   const handleTabChange = (_, newValue) => {
     setSelectedTab(newValue)
@@ -20,7 +31,7 @@ function NewsTabs() {
     setPage(value)
   }
 
-  const filteredNews = news.filter(
+  const filteredNews = allNews.filter(
     (item) => item.category === categories[selectedTab]
   )
 
@@ -31,13 +42,28 @@ function NewsTabs() {
 
   const pageCount = Math.ceil(filteredNews.length / ITEMS_PER_PAGE)
 
-  return (
+  if (loading) return (
     <Box
       sx={{
         maxWidth: 'lg',
         mx: 'auto',
         py: 6,
         px: 2
+      }}
+    >
+      <Typography variant='h3'>Đang tải tin tức</Typography>
+    </Box>
+  )
+
+  return (
+    <Box
+      sx={{
+        maxWidth: 'lg',
+        mx: 'auto',
+        py: 6,
+        px: 2,
+        position: 'relative',
+        zIndex: '1'
       }}
     >
       <Tabs
@@ -80,6 +106,7 @@ function NewsTabs() {
               mt: 4,
               cursor: 'pointer'
             }}
+            onClick={() => navigate(`/news/${item.id}`)}
           >
             <Box
               sx={{
@@ -93,7 +120,7 @@ function NewsTabs() {
               <Box
                 component="img"
                 src={item.image} // Thay bằng đường dẫn ảnh thực tế
-                alt="Hoạt Động Hưởng Ứng Ngày 30/4"
+                alt={item.title}
                 sx={{
                   width: '100%',
                   height: '300px',
@@ -118,7 +145,7 @@ function NewsTabs() {
                   {item.title}
                 </Typography>
                 <Typography variant="body2" color="text.secondary" sx={{ mb: 2 }}>
-                  {item.subTitle}
+                  {item.summary}
                 </Typography>
               </Box>
             </Box>
