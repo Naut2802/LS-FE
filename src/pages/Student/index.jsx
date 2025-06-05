@@ -1,5 +1,5 @@
 import StudentHero from '~/pages/Student/StudentHero'
-import RecognitionList from '~/pages/Student/RecognitionList'
+import StudentRecognition from '~/components/StudentRecognition'
 import Feedbacks from '~/pages/Student/Feedbacks'
 import FreeTrialForm from '~/components/FreeTrialForm'
 
@@ -7,7 +7,7 @@ function Student() {
   return (
     <>
       <StudentHero />
-      <RecognitionList />
+      <StudentRecognition viewMoreText='Xem thêm' />
       <Feedbacks />
       <FreeTrialForm />
     </>

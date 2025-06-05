@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useRef } from 'react'
 import {
   Box,
   Typography,
@@ -13,6 +13,13 @@ import FreeTrialBackgroundImg from '~/assets/hero-sections/free-trial-background
 import { RegisterButton } from '~/components/Buttons/RegisterButton'
 import EastIcon from '@mui/icons-material/East'
 import { courses } from '~/data/courses'
+import emailjs from '@emailjs/browser'
+
+const EMAILJS_INFO = {
+  serviceId: 'service_0mb20ft',
+  templateId: 'template_6m6ipuh',
+  publicKey: 'Hg4nkEocaH6Sh1XEY'
+}
 
 const subjects = courses.map((course) => course.title)
 
@@ -63,13 +70,7 @@ function FreeTrialForm() {
     severity: 'success'
   })
   const [isSubmitting, setIsSubmitting] = useState(false)
-
-  const FORM_ID = '1FAIpQLSc-reniYidMTvL2cW7WZRi4U6K2LjhlRdq9d6UDLpdaNLUuUw'
-  const ENTRY_IDS = {
-    parentName: 'entry.819276298',
-    phone: 'entry.852211228',
-    subject: 'entry.882762842'
-  }
+  const form = useRef()
 
   const validateForm = () => {
     const newErrors = {
@@ -91,7 +92,7 @@ function FreeTrialForm() {
     }))
   }
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault()
 
     if (!validateForm()) {
@@ -105,41 +106,36 @@ function FreeTrialForm() {
 
     setIsSubmitting(true)
 
-    try {
-      const formUrl = `https://docs.google.com/forms/d/e/${FORM_ID}/formResponse`
-
-      const submitData = new FormData()
-      submitData.append(ENTRY_IDS.parentName, formData.parentName)
-      submitData.append(ENTRY_IDS.phone, formData.phone)
-      submitData.append(ENTRY_IDS.subject, formData.subject)
-
-      await fetch(formUrl, {
-        method: 'POST',
-        body: submitData,
-        mode: 'no-cors'
+    emailjs.sendForm(
+      import.meta.env.VITE_EMAILJS_SERVICE_ID,
+      import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+      form.current,
+      {
+        publicKey: import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+      }
+    )
+      .then(() => {
+        setSnackbar({
+          open: true,
+          message: 'Gửi thành công! Trung tâm sẽ liên hệ với phụ huynh sớm nhất.',
+          severity: 'success'
+        })
+        setFormData({
+          parentName: '',
+          phone: '',
+          subject: ''
+        })
       })
-
-      setSnackbar({
-        open: true,
-        message: 'Gửi thành công! Trung tâm sẽ liên hệ với phụ huynh sớm nhất.',
-        severity: 'success'
+      .catch(() => {
+        setSnackbar({
+          open: true,
+          message: 'Đã có lỗi xảy ra. Vui lòng thử lại sau.',
+          severity: 'error'
+        });
       })
-      setFormData({
-        parentName: '',
-        phone: '',
-        subject: ''
+      .finally(() => {
+        setIsSubmitting(false)
       })
-
-    // eslint-disable-next-line no-unused-vars
-    } catch (error) {
-      setSnackbar({
-        open: true,
-        message: 'Đã có lỗi xảy ra. Vui lòng thử lại sau.',
-        severity: 'error'
-      })
-    }
-
-    setIsSubmitting(false)
   }
 
   return (
@@ -185,7 +181,7 @@ function FreeTrialForm() {
             Kiểm Tra Trình Độ <br /> & Tham Gia Học Thử Miễn Phí
           </Typography>
 
-          <Box display="flex" flexDirection="column" gap={2} alignItems='center'>
+          <Box ref={form} component='form' onSubmit={handleSubmit} display="flex" flexDirection="column" gap={2} alignItems='center'>
             <RoundedTextField
               name='parentName'
               placeholder="Họ tên phụ huynh"
@@ -255,7 +251,7 @@ function FreeTrialForm() {
             </RoundedTextField>
 
             <RegisterButton
-              onClick={handleSubmit}
+              type='submit'
               disabled={isSubmitting}
               variant='contained'
               endIcon={<EastIcon />}

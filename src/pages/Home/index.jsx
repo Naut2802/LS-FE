@@ -1,7 +1,7 @@
 import HomeHero from '~/pages/Home/HomeHero'
 import HappyStats from '~/pages/Home/HappyStats'
 import Courses from '~/pages/Home/Courses'
-import Students from '~/pages/Home/StudentRecognition'
+import StudentRecognition from '~/components/StudentRecognition'
 import Facilities from '~/pages/Home/Facilites'
 import Teachers from '~/pages/Home/Teachers'
 import News from '~/pages/Home/News'
@@ -13,7 +13,7 @@ function Home() {
       <HomeHero />
       <HappyStats />
       <Courses />
-      <Students />
+      <StudentRecognition viewMoreText='Xem tất cả học viên' />
       <Facilities />
       <Teachers />
       <News />

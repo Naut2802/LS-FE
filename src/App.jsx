@@ -6,6 +6,7 @@ import Teacher from '~/pages/Teacher'
 import Student from '~/pages/Student'
 import News from '~/pages/News'
 import NewsDetail from '~/pages/News/_id'
+import CourseDetail from '~/pages/Course/_id'
 import Footer from '~/components/Footer'
 import NotFound from '~/pages/404/NotFound'
 import ScrollToTop from '~/components/ScrollToTop'
@@ -22,6 +23,7 @@ function App() {
         <Route path='/student' element={<Student />} />
         <Route path='/news' element={<News />} />
         <Route path='/news/:id' element={<NewsDetail />} />
+        <Route path='/courses/:id' element={<CourseDetail />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
       <Footer />
