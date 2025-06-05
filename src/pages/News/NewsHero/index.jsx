@@ -1,4 +1,5 @@
 import React from 'react'
+import { useState, useEffect } from 'react'
 import {
   Box,
   Typography,
@@ -8,9 +9,31 @@ import {
 import { alpha } from '@mui/material/styles'
 import PlayArrowIcon from '@mui/icons-material/PlayArrow'
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward'
-import NewsHeroImg from '~/assets/hero-sections/news-hero.jpg'
+import { useNavigate } from 'react-router-dom'
+import { getHotNews } from '~/data/newsService'
 
 function NewsHero() {
+  const [hotNewsItem, setHotNewsItem] = useState(null)
+  const navigate = useNavigate()
+
+  useEffect(() => {
+    getHotNews().then((data) => {
+      setHotNewsItem(data)
+    })
+  }, [])
+
+  if (!hotNewsItem) return (
+    <Box
+      sx={{
+        maxWidth: 'lg',
+        mx: 'auto',
+        py: 6,
+        px: 2
+      }}
+    >
+    </Box>
+  )
+
   return (
     <Box
       sx={{
@@ -18,7 +41,7 @@ function NewsHero() {
         minHeight: '600px',
         width: '100%',
         overflow: 'hidden',
-        backgroundImage: `url(${NewsHeroImg})`,
+        backgroundImage: `url(${hotNewsItem.image})`,
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat'
@@ -48,7 +71,7 @@ function NewsHero() {
           py: 4
         }}
       >
-        <Box sx={{ maxWidth: 800, color: 'white' }}>
+        <Box sx={{ color: 'white' }}>
           {/* Badge */}
           <Stack direction="row" alignItems="center" spacing={1} sx={{ mb: 1 }}>
             <PlayArrowIcon sx={{ fontSize: { xs: '12px', sm: '16px', md: '24px' }, fontWeight: '500' }} />
@@ -67,13 +90,14 @@ function NewsHero() {
               mb: 4
             }}
           >
-            Little Sunny tổ chức ngoại khóa tham quan các địa danh nổi tiếng tại thành phố Hồ Chí Minh
+            {hotNewsItem.title}
           </Typography>
 
           {/* Read More Button */}
           <Button
             variant="contained"
             endIcon={<ArrowForwardIcon />}
+            onClick={() => navigate(`/news/${hotNewsItem.id}`)}
             sx={{
               width: { xs: 'auto', md: 'auto' },
               borderRadius: '50px',

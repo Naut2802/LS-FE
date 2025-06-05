@@ -87,7 +87,9 @@ function HeaderMenu() {
   return (
     <Box
       sx={{
-        bgcolor: (theme) => (theme.palette.secondary.main)
+        bgcolor: (theme) => (theme.palette.secondary.main),
+        position: 'relative',
+        zIndex: '2'
       }}
     >
       <Box

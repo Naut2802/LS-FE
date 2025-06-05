@@ -4,6 +4,7 @@ import { Box, Typography, Card, CardMedia, CardContent, IconButton } from '@mui/
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Navigation, Pagination, Autoplay } from 'swiper/modules'
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward'
+import { useNavigate } from 'react-router-dom'
 import { courses } from '~/data/courses'
 import '~/utils/swiper.css'
 import 'swiper/css'
@@ -18,74 +19,79 @@ const groupCourses = (data, itemsPerSlide) => {
   return groups
 }
 
-const CourseCard = ({ course }) => (
-  <Card
-    sx={{
-      borderRadius: 4,
-      overflow: 'hidden',
-      boxShadow: 3,
-      textAlign: 'left',
-      p: 2,
-      bgcolor: `${course.color}`
-    }}
-  >
-    <CardMedia component="img"
-      height="350"
-      image={course.image}
-      alt={course.title}
+const CourseCard = ({ course }) => {
+  const navigate = useNavigate()
+  return (
+    <Card
       sx={{
-        borderRadius: '10px'
-      }}
-    />
-    <CardContent
-      sx={{
-        display: 'flex',
-        justifyContent: 'space-between',
-        alignItems: 'center',
-        backgroundColor: course.color,
-        color: '#fff',
-        py: 2,
-        px: 0,
-        '&:last-child': {
-          pb: 0
-        }
+        borderRadius: 4,
+        overflow: 'hidden',
+        boxShadow: 3,
+        textAlign: 'left',
+        p: 2,
+        bgcolor: `${course.color}`
       }}
     >
-      <Box>
-        <Typography
-          sx={{
-            fontSize: '20px',
-            fontWeight: 'bold',
-            overflow: 'hidden',
-            textOverflow: 'ellipsis',
-            whiteSpace: 'nowrap'
-          }}
-        >
-          {course.title}
-        </Typography>
-        <Typography fontSize='18px' fontWeight="bold">
-          {course.age}
-        </Typography>
-      </Box>
-      <Box>
-        <IconButton
-          sx={{
-            backgroundColor: 'transparent',
-            border: '2px solid #fff',
-            color: '#fff',
-            '&:hover': {
-              backgroundColor: '#eee',
-              color: `${course.color}`
-            },
-            mr: 1
-          }}
-        >
-          <ArrowForwardIcon />
-        </IconButton>
-      </Box>
-    </CardContent>
-  </Card>
-)
+      <CardMedia component="img"
+        height="350"
+        image={course.image}
+        alt={course.title}
+        sx={{
+          borderRadius: '10px',
+          objectFit: 'contain'
+        }}
+      />
+      <CardContent
+        sx={{
+          display: 'flex',
+          justifyContent: 'space-between',
+          alignItems: 'center',
+          backgroundColor: course.color,
+          color: '#fff',
+          py: 2,
+          px: 0,
+          '&:last-child': {
+            pb: 0
+          }
+        }}
+      >
+        <Box>
+          <Typography
+            sx={{
+              fontSize: '20px',
+              fontWeight: 'bold',
+              overflow: 'hidden',
+              textOverflow: 'ellipsis',
+              whiteSpace: 'nowrap'
+            }}
+          >
+            {course.title}
+          </Typography>
+          <Typography fontSize='18px' fontWeight="bold">
+            ({course.age})
+          </Typography>
+        </Box>
+        <Box>
+          <IconButton
+            sx={{
+              backgroundColor: 'transparent',
+              border: '2px solid #fff',
+              color: '#fff',
+              '&:hover': {
+                backgroundColor: '#eee',
+                color: `${course.color}`
+              },
+              mr: 1
+            }}
+            onClick={() => navigate(`/courses/${course.id}`)}
+          >
+            <ArrowForwardIcon />
+          </IconButton>
+        </Box>
+      </CardContent>
+    </Card>
+  )
+}
 
 function Courses() {
   const [slides, setSlides] = useState(groupCourses(courses, 3))

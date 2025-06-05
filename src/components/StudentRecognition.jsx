@@ -1,6 +1,8 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom'
 import { Box, Typography } from '@mui/material'
 import { styled } from '@mui/material/styles'
+import EastIcon from '@mui/icons-material/East'
 import { students } from '~/data/students'
 import { ViewAllButton } from '~/components/Buttons/ViewAllButton'
 
@@ -41,7 +43,8 @@ const StudentItem = styled(Box)(({ theme }) => ({
   }
 }))
 
-function RecognitionList() {
+function StudentRecognition({ viewMoreText }) {
+  const navigate = useNavigate()
 
   return (
     <Box sx={{ py: 8, px: 2 }}>
@@ -54,7 +57,7 @@ function RecognitionList() {
         </Typography>
 
         <StudentSection>
-          {students.map((student) => (
+          {students.slice(0, 6).map((student) => (
             <StudentItem key={student.id}>
               <StudentContainer>
                 <StudentCard component='img' src={student.image} alt={student.name}/>
@@ -70,8 +73,14 @@ function RecognitionList() {
         </StudentSection>
 
         <Box sx={{ display: 'flex', justifyContent: 'center', mt: 4 }}>
-          <ViewAllButton variant="outlined">
-            Xem thêm
+          <ViewAllButton
+            onClick={() => {
+              navigate('/student')
+            }}
+            variant="outlined"
+            endIcon={<EastIcon />}
+          >
+            {viewMoreText}
           </ViewAllButton>
         </Box>
       </Box>
@@ -79,4 +88,4 @@ function RecognitionList() {
   )
 }
 
-export default RecognitionList
+export default StudentRecognition
